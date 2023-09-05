@@ -120,18 +120,15 @@ export PS1='\[\033[01;32m\]\u@\h\[\033[01;33m\] \w \[\033[01;36m\]$(__git_ps1 "(
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# fshow - git commit browser
-fshow() {
-  git log --graph --color=always \
-      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
-      --bind "ctrl-m:execute:
-                (grep -o '[a-f0-9]\{7\}' | head -1 |
-                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
-                {}
-FZF-EOF"
+fadd() {
+    local selected
+    selected=$(git status -s | fzf -m --ansi --preview="echo {} | awk '{print \$2}' | xargs git diff --color" | awk '{print $2}')
+    if [[ -n "$selected" ]]; then
+        selected=$(tr '\n' ' ' <<< "$selected")
+        git add $selected
+        echo "Completed: git add $selected"
+    fi
 }
-
 # fbr - checkout git branch (including remote branches)
 fbr() {
   local branches branch
@@ -141,7 +138,8 @@ fbr() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-git-commit-show () 
+# fshow - git commit browser
+fshow()
 {
   git log --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"  | \
    fzf --ansi --no-sort --reverse --tiebreak=index --preview \
