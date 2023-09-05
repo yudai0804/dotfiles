@@ -25,6 +25,9 @@ call dein#add('junegunn/fzf.vim')
 call dein#add('preservim/nerdtree')
 "nerd-fontsを別でインストールしないとvim-deviconsは使えないので注意
 call dein#add('ryanoasis/vim-devicons')
+"call dein#add('itchyny/lightline.vim')
+call dein#add('vim-airline/vim-airline')
+call dein#add('vim-airline/vim-airline-themes')
 call dein#add('tpope/vim-fugitive')
 " Finish Dein initialization (required)
 call dein#end()
@@ -69,6 +72,9 @@ set list
 hi DoubleByteSpace term=underline ctermbg=blue guibg=darkgray
 match DoubleByteSpace /　/
 
+"set laststatus=2
+let g:airline_poerline_fonts=1
+let g:airline_theme='solarized'
 " Uncomment if you want to install not-installed plugins on startup.
 if dein#check_install()
  call dein#install()
