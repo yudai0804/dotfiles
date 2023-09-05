@@ -49,7 +49,25 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+" nerdree
+" 常にNERDTreeを表示する
+"autocmd VimEnter * execute 'NERDTree'
+" 隠しファイルを表示する
+let NERDTreeShowHidden = 1
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+" 行数を表示
+set number
+" 行末を '↲'、タブを '>-'、末尾のスペースを '_' で表示
+set listchars=eol:↲,tab:>-,trail:_
+set list
+"-------------------------
+" Show double byte spaces
+"-------------------------
+hi DoubleByteSpace term=underline ctermbg=blue guibg=darkgray
+match DoubleByteSpace /　/
+
 " Uncomment if you want to install not-installed plugins on startup.
 if dein#check_install()
  call dein#install()
 endif
+
