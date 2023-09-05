@@ -115,6 +115,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
 # show branch name
 export PS1='\[\033[01;32m\]\u@\h\[\033[01;33m\] \w \[\033[01;36m\]$(__git_ps1 "(%s)") \n\[\033[01;34m\]\$\[\033[00m\] '
 
@@ -149,5 +150,5 @@ fshow()
                 xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
                 {}
     FZF-EOF" \
-    --preview-window='right,30%,border-left'
+    --preview-window='right,50%,border-left'
 }
