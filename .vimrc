@@ -23,6 +23,7 @@ call dein#add('altercation/vim-colors-solarized')
 call dein#add('junegunn/fzf')
 call dein#add('junegunn/fzf.vim')
 call dein#add('preservim/nerdtree')
+call dein#add('Xuyuanp/nerdtree-git-plugin')
 "nerd-fontsを別でインストールしないとvim-deviconsは使えないので注意
 call dein#add('ryanoasis/vim-devicons')
 "call dein#add('itchyny/lightline.vim')
