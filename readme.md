@@ -17,4 +17,3 @@ sh installer.sh
 ```
 これでdein.vimがインストールされて、vim起動時に.vimrcに書かれているプラグインが自動でダウンロードされる。  
 インストーラー:https://github.com/Shougo/dein-installer.vim  
-

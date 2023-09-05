@@ -20,8 +20,9 @@ call dein#add(s:dein_src)
 "call dein#add('Shougo/neosnippet.vim')
 "call dein#add('Shougo/neosnippet-snippets')
 call dein#add('altercation/vim-colors-solarized')
+call dein#add('junegunn/fzf')
 call dein#add('junegunn/fzf.vim')
-
+call dein#add('preservim/nerdtree')
 " Finish Dein initialization (required)
 call dein#end()
 
