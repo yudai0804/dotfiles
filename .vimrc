@@ -1,7 +1,7 @@
 " Ward off unexpected things that your distro might have made, as
 " well as sanely reset options when re-sourcing .vimrc
 set nocompatible
-
+set encoding=UTF-8
 " Set Dein base path (required)
 let s:dein_base = '/home/yudai/.cache/dein'
 
@@ -23,6 +23,9 @@ call dein#add('altercation/vim-colors-solarized')
 call dein#add('junegunn/fzf')
 call dein#add('junegunn/fzf.vim')
 call dein#add('preservim/nerdtree')
+"nerd-fontsを別でインストールしないとvim-deviconsは使えないので注意
+call dein#add('ryanoasis/vim-devicons')
+call dein#add('tpope/vim-fugitive')
 " Finish Dein initialization (required)
 call dein#end()
 
