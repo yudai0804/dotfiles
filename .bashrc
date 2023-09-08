@@ -165,3 +165,4 @@ alias gf='git fetch'
 alias gc='git commit'
 
 alias v='vim'
+alias s='sudo'
