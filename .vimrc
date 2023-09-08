@@ -3,11 +3,9 @@
 set nocompatible
 set encoding=UTF-8
 " Set Dein base path (required)
-let s:dein_base = '/home/yudai/.cache/dein'
-
+let s:dein_base = "/home/" .. $USER .. "/.cache/dein"
 " Set Dein source path (required)
-let s:dein_src = '/home/yudai/.cache/dein/repos/github.com/Shougo/dein.vim'
-
+let s:dein_src = "/home/" .. $USER .. "/.cache/dein/repos/github.com/Shougo/dein.vim"
 " Set Dein runtime path (required)
 execute 'set runtimepath+=' . s:dein_src
 
