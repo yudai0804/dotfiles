@@ -17,3 +17,6 @@ sh installer.sh
 ```
 これでdein.vimがインストールされて、vim起動時に.vimrcに書かれているプラグインが自動でダウンロードされる。  
 インストーラー:https://github.com/Shougo/dein-installer.vim  
+
+## 必要なフォント
+fontは[powerline fonts](https://github.com/powerline/fonts)とNerd Fonts[https://github.com/ryanoasis/nerd-fonts](アイコン用)が必要

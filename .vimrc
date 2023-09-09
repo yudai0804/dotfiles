@@ -15,6 +15,7 @@ call dein#begin(s:dein_base)
 call dein#add(s:dein_src)
 
 " Your plugins go here:
+call dein#add('altercation/vim-colors-solarized')
 call dein#add('junegunn/fzf')
 call dein#add('junegunn/fzf.vim')
 call dein#add('preservim/nerdtree')
@@ -24,6 +25,7 @@ call dein#add('ryanoasis/vim-devicons')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
 call dein#add('tpope/vim-fugitive')
+"call dein#add('neoclide/coc.nvim', {'merged':0,'rev':'release'})
 " Finish Dein initialization (required)
 call dein#end()
 
@@ -34,10 +36,6 @@ if has('filetype')
   filetype indent plugin on
 endif
 
-" Enable syntax highlighting
-"if has('syntax')
-"  syntax on
-"endif
 
 if &term =~ '256color'
   " disable Background Color Erase (BCE) so that color schemes
@@ -67,8 +65,7 @@ set list
 hi DoubleByteSpace term=underline ctermbg=blue guibg=darkgray
 match DoubleByteSpace /　/
 
-"set laststatus=2
-let g:airline_poerline_fonts=1
+let g:airline_powerline_fonts = 1
 let g:airline_theme='solarized'
 " Uncomment if you want to install not-installed plugins on startup.
 if dein#check_install()
