@@ -25,7 +25,7 @@ call dein#add('ryanoasis/vim-devicons')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
 call dein#add('tpope/vim-fugitive')
-"call dein#add('neoclide/coc.nvim', {'merged':0,'rev':'release'})
+call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
 " Finish Dein initialization (required)
 call dein#end()
 
