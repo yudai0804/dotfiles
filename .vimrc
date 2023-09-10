@@ -18,7 +18,7 @@ call dein#begin(s:dein_base)
 call dein#add(s:dein_src)
 
 " Your plugins go here:
-call dein#add('altercation/vim-colors-solarized')
+call dein#add('lifepillar/vim-solarized8')
 call dein#add('junegunn/fzf')
 call dein#add('junegunn/fzf.vim')
 call dein#add('preservim/nerdtree')
@@ -48,9 +48,11 @@ if &term =~ '256color'
 endif
 
 syntax enable
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set background=dark
-colorscheme solarized
-
+set t_Co=16
+autocmd vimenter * ++nested colorscheme solarized8
 " nerdree
 " 常にNERDTreeを表示する
 "autocmd VimEnter * execute 'NERDTree'

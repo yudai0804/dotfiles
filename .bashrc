@@ -119,17 +119,45 @@ fi
 # show branch name
 export PS1='\[\033[01;32m\]\u@\h\[\033[01;33m\] \w \[\033[01;36m\]$(__git_ps1 "(%s)") \n\[\033[01;34m\]\$\[\033[00m\] '
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+fcd() {
+    if [[ "$#" != 0 ]]; then
+        builtin cd "$@";
+        return
+    fi
+    while true; do
+        local lsd=$(echo '..' & ls -Ap | grep '/$' | sed 's;/$;;')
+        local dir="$(printf '%s\n' "${lsd[@]}" |
+            fzf --reverse --preview '
+                __cd_nxt="$(echo {})";
+                __cd_path="$(echo $(pwd)/${__cd_nxt} | sed "s;//;/;")";
+                echo $__cd_path;
+                echo;
+                ls -p --color=always "${__cd_path}";
+        ')" \
+        [[ ${#dir} != 0 ]] || return 0
+        builtin cd "$dir" &> /dev/null
+    done
+}
 
 fadd() {
-    local selected
-    selected=$(git status -s | fzf -m --ansi --preview="echo {} | awk '{print \$2}' | xargs git diff --color" | awk '{print $2}')
-    if [[ -n "$selected" ]]; then
-        selected=$(tr '\n' ' ' <<< "$selected")
-        git add $selected
-        echo "Completed: git add $selected"
+  local out q n addfiles
+  while out=$(
+      git status --short |
+      awk '{if (substr($0,2,1) !~ / /) print $2}' |
+      fzf-tmux --multi --exit-0 --expect=ctrl-d --preview="echo {} | awk '{print \$2}' | xargs git diff --color"); do
+    q=$(head -1 <<< "$out")
+    n=$[$(wc -l <<< "$out") - 1]
+    addfiles=(`echo $(tail "-$n" <<< "$out")`)
+    [[ -z "$addfiles" ]] && continue
+    if [ "$q" = ctrl-d ]; then
+      git diff --color=always $addfiles | less -R
+    else
+      git add $addfiles
     fi
+  done
 }
+
 # fbr - checkout git branch (including remote branches)
 fbr() {
   local branches branch
@@ -166,3 +194,6 @@ alias gc='git commit'
 
 alias v='vim'
 alias s='sudo'
+export PATH="/home/yudai/.cache/git-fuzzy/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
