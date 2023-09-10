@@ -76,4 +76,9 @@ let g:airline_theme='solarized'
 if dein#check_install()
  call dein#install()
 endif
-
+"括弧を補完する
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
