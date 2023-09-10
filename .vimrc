@@ -64,6 +64,7 @@ set number
 " 行末を '↲'、タブを '>-'、末尾のスペースを '_' で表示
 set listchars=eol:↲,tab:>-,trail:_
 set list
+set mouse=a
 "-------------------------
 " Show double byte spaces
 "-------------------------
@@ -82,3 +83,18 @@ inoremap [ []<LEFT>
 inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
+
+"C-sでESCキーの代わりをする
+:noremap <C-s> <ESC>
+:noremap! <C-s> <ESC>
+"-------------
+" Change the tab (some terminal cannot handle C-Tab)
+"-------------
+"Go to next tab
+nmap <C-Tab> :tabnext<CR>
+nmap <C-l> :tabnext<CR>
+nmap <C-k> :tabnext<CR>
+
+"Go to previous tab
+nmap <C-j> :tabprevious<CR>
+nmap <C-h> :tabprevious<CR>""")""
