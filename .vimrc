@@ -2,6 +2,9 @@
 " well as sanely reset options when re-sourcing .vimrc
 set nocompatible
 set encoding=UTF-8
+"swapファイルの設定を変更
+set noswapfile
+
 " Set Dein base path (required)
 let s:dein_base = "/home/" .. $USER .. "/.cache/dein"
 " Set Dein source path (required)
