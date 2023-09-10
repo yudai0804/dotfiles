@@ -1,25 +1,40 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
+export EDITOR=vim
+export PATH="/home/yudai/.cache/git-fuzzy/bin:$PATH"
+# zsh関連
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="agnoster"
 
 plugins=(git)
 
+# alias
+alias h='fc -lt '%F %T' 1'
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias g='git'
+alias ga='git add'
+alias gd='git diff'
+alias gs='git status'
+alias gp='git push'
+alias gb='git branch'
+alias gst='git status'
+alias gco='git checkout'
+alias gf='git fetch'
+alias gc='git commit'
+
+alias v='vim'
+alias s='sudo'
+
+
+# 読み込み
 source $ZSH/oh-my-zsh.sh
-
-# 色を使用、意味があるのかは不明
-autoload -Uz colors ; colors
-
-export EDITOR=vim
-# viキーバインド
-bindkey -e
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# キーバインド
+# viのキーバインド
+bindkey -v 
 # カッコの対応などを自動的に補完する
 setopt auto_param_keys
 # コマンドのスペルチェックをする
@@ -51,14 +66,6 @@ setopt share_history
 setopt hist_ignore_all_dups
 
 # historyに日付を表示
-alias h='fc -lt '%F %T' 1'
-
-
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fcd() {
     if [[ "$#" != 0 ]]; then
         builtin cd "$@";
@@ -119,19 +126,3 @@ fshow()
     FZF-EOF" \
     --preview-window='right,50%,border-left'
 }
-
-alias g='git'
-alias ga='git add'
-alias gd='git diff'
-alias gs='git status'
-alias gp='git push'
-alias gb='git branch'
-alias gst='git status'
-alias gco='git checkout'
-alias gf='git fetch'
-alias gc='git commit'
-
-alias v='vim'
-alias s='sudo'
-export PATH="/home/yudai/.cache/git-fuzzy/bin:$PATH"
-
