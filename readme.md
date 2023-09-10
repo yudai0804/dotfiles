@@ -1,7 +1,10 @@
 # dotfileのリポジトリ  
-ubuntu22.04  
-vim
 
+## 開発環境
+ubuntu22.04  
+vim8.2  
+zsh 5.8.1  
+tmux
 ## dotfilesLink.sh
 ```
 sh dotfilesLink.sh
@@ -19,4 +22,7 @@ sh installer.sh
 インストーラー:https://github.com/Shougo/dein-installer.vim  
 
 ## 必要なフォント
-fontは[powerline fonts](https://github.com/powerline/fonts)とNerd Fonts[https://github.com/ryanoasis/nerd-fonts](アイコン用)が必要
+fontは[powerline fonts](https://github.com/powerline/fonts)と[Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)(アイコン用)が必要
+
+## zshプラグイン
+zshのプラグインには[ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
