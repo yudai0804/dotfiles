@@ -7,6 +7,10 @@ ZSH_THEME="agnoster"
 
 plugins=(git)
 
+# 読み込み
+source $ZSH/oh-my-zsh.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # alias
 alias h='fc -lt '%F %T' 1'
 
@@ -29,9 +33,6 @@ alias v='vim'
 alias s='sudo'
 
 
-# 読み込み
-source $ZSH/oh-my-zsh.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # キーバインド
 # viのキーバインド
 bindkey -v 
@@ -44,7 +45,7 @@ setopt correct_all
 # sudo の後ろでコマンド名を補完する
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-setopt auto_pushd
+# setopt auto_pushd
 # 長いので、自分のユーザー名とPCの名前を出さないようにする
 prompt_context () { }
 
@@ -58,16 +59,12 @@ HISTFILE=$HOME/.zsh-history
 HISTSIZE=100000
 SAVEHIST=1000000
 
-# ヒストリーに重複を表示しない
-setopt histignorealldups
+setopt hist_expire_dups_first # 履歴を切り詰める際に、重複する最も古いイベントから消す
+setopt hist_ignore_all_dups   # 履歴が重複した場合に古い履歴を削除する
+setopt hist_ignore_dups       # 前回のイベントと重複する場合、履歴に保存しない
+setopt hist_save_no_dups      # 履歴ファイルに書き出す際、新しいコマンドと重複する古いコマンドは切り捨てる
+setopt share_history          # 全てのセッションで履歴を共有する
 
-# 他のターミナルとヒストリーを共有
-setopt share_history
-
-# すでにhistoryにあるコマンドは残さない
-setopt hist_ignore_all_dups
-
-# historyに日付を表示
 fcd() {
     if [[ "$#" != 0 ]]; then
         builtin cd "$@";
