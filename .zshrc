@@ -123,7 +123,7 @@ fbr() {
 # fshow - git commit browser
 fshow()
 {
-  git log --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"  | \
+  git log --graph --all --color=always --format="%C(auto)%h%d %s %C(bold)%cr"  | \
    fzf --ansi --no-sort --reverse --tiebreak=index --preview \
    'f() { set -- $(echo -- "$@" | grep -o "[a-f0-9]\{7\}"); [ $# -eq 0 ] || git show --color=always $1 ; }; f {}' \
    --bind "j:down,k:up,alt-j:preview-down,alt-k:preview-up,ctrl-f:preview-page-down,ctrl-b:preview-page-up,q:abort,ctrl-m:execute:
