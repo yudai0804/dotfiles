@@ -5,7 +5,7 @@ export PATH="/home/yudai/.cache/git-fuzzy/bin:$PATH"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="agnoster"
 
-plugins=(git)
+plugins=(git zsh-syntax-highlighting)
 
 # 読み込み
 source $ZSH/oh-my-zsh.sh
@@ -85,13 +85,14 @@ fcd() {
     done
 }
 
+# ref:https://qiita.com/reviry/items/e798da034955c2af84c5
 fadd() {
   local out q n addfiles
   while out=$(
       git status --short |
       awk '{if (substr($0,2,1) !~ / /) print $2}' |
-      fzf-tmux --multi --exit-0 --expect=ctrl-d --preview="echo {} | awk '{print \$2}' | xargs git diff --color"); do
-    q=$(head -1 <<< "$out")
+      fzf-tmux --multi --ansi --exit-0 --expect=ctrl-d --preview="echo {} | awk '{print \$2}' | xargs git diff --color" | awk 'print $2'); do
+   q=$(head -1 <<< "$out")
     n=$[$(wc -l <<< "$out") - 1]
     addfiles=(`echo $(tail "-$n" <<< "$out")`)
     [[ -z "$addfiles" ]] && continue
@@ -101,7 +102,14 @@ fadd() {
       git add $addfiles
     fi
   done
+  echo "fadd coplete"
 }
+
+fd() {
+  preview="git diff $@ --color=always -- {-1}"
+  git diff $@ --name-only | fzf -m --ansi --preview $preview
+}
+
 
 # fbr - checkout git branch (including remote branches)
 fbr() {
