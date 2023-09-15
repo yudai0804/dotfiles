@@ -34,6 +34,8 @@ alias s='sudo'
 
 
 # キーバインド
+# KEYTIMEOUTを短くする
+KEYTIMEOUT=1
 # viのキーバインド
 bindkey -v 
 # カッコの対応などを自動的に補完する

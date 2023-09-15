@@ -84,6 +84,28 @@ inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 
+" キーコードシーケンスが終了するのを待つ時間を短くする
+set ttimeoutlen=10
+
+" インデントの設定
+set tabstop=4
+set autoindent
+set smartindent
+set cindent
+set smarttab
+" ファイルタイプ検出を有効にする
+filetype on
+
+augroup vimrc
+    " 以前の autocmd コマンドをクリア
+    autocmd!
+
+    " C/C++/Java 言語系のファイルタイプが設定されたら cindent モードを有効にする
+    autocmd FileType c,cpp setlocal shiftwidth=4 softtabstop=4 ts=4
+    autocmd FileType rust setlocal shiftwidth=4 softtabstop=4 ts=4 expandtab
+
+augroup END"""
+
 "C-sでESCキーの代わりをする
 :noremap <C-s> <ESC>
 :noremap! <C-s> <ESC>
