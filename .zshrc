@@ -9,6 +9,7 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 TERM=xterm-256color
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
 # tabでautosuggest,shitf + tabで通常補完
+#ref:https://github.com/zsh-users/zsh-autosuggestions/issues/532
 bindkey '^I'      autosuggest-accept
 
 # 読み込み
