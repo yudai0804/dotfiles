@@ -49,7 +49,7 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 # setopt auto_pushd
 # 長いので、自分のユーザー名とPCの名前を出さないようにする
-prompt_context () { }
+# prompt_context () { }
 
 # Vim上でC-qやC-sを使えるようにするおまじない
 stty -ixon
@@ -81,7 +81,7 @@ fcd() {
                 echo $__cd_path;
                 echo;
                 ls -p --color=always "${__cd_path}";
-        ')" \
+        ')"
         [[ ${#dir} != 0 ]] || return 0
         builtin cd "$dir" &> /dev/null
     done
