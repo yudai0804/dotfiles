@@ -5,7 +5,11 @@ export PATH="/home/yudai/.cache/git-fuzzy/bin:$PATH"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="agnoster"
 
-plugins=(git zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+TERM=xterm-256color
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
+# tabでautosuggest,shitf + tabで通常補完
+bindkey '^I'      autosuggest-accept
 
 # 読み込み
 source $ZSH/oh-my-zsh.sh
@@ -58,8 +62,8 @@ stty -ixon
 # -----------------------------
 # 基本設定
 HISTFILE=$HOME/.zsh-history
-HISTSIZE=100000
-SAVEHIST=1000000
+HISTSIZE=10000
+SAVEHIST=100000
 
 setopt hist_expire_dups_first # 履歴を切り詰める際に、重複する最も古いイベントから消す
 setopt hist_ignore_all_dups   # 履歴が重複した場合に古い履歴を削除する
@@ -135,3 +139,11 @@ fshow()
     FZF-EOF" \
     --preview-window='right,50%,border-left'
 }
+
+# nnn
+# 終了時にcd
+NNN_OPENER="/usr/bin/vim"
+NNN_TMPFILE='/tmp/.lastd'
+if [ -f /usr/share/nnn/quitcd/quitcd.bash_zsh ]; then
+    source /usr/share/nnn/quitcd/quitcd.bash_zsh
+fi
