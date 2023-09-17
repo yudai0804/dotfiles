@@ -47,7 +47,7 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 # setopt auto_pushd
 # 長いので、自分のユーザー名とPCの名前を出さないようにする
-# prompt_context () { }
+prompt_context () { }
 
 # Vim上でC-qやC-sを使えるようにするおまじない
 stty -ixon
@@ -141,10 +141,15 @@ fshow()
     --preview-window='right,50%,border-left'
 }
 
-# nnn
-# 終了時にcd
-NNN_OPENER="/usr/bin/vim"
-NNN_TMPFILE='/tmp/.lastd'
-if [ -f /usr/share/nnn/quitcd/quitcd.bash_zsh ]; then
-    source /usr/share/nnn/quitcd/quitcd.bash_zsh
-fi
+# rangerが多重に起動するのを防止する
+# https://qiita.com/ssh0/items/fe85da119c93333ba34e
+
+function ranger() {
+   if [ -z "$RANGER_LEVEL" ]; then
+       /usr/bin/ranger $@
+   else
+       exit
+   fi
+}
+[ -n "$RANGER_LEVEL" ] && PS1="(RANGER) $PS1"
+alias rng='ranger'

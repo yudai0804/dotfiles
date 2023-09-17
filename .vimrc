@@ -120,3 +120,5 @@ nmap <C-k> :tabnext<CR>
 "Go to previous tab
 nmap <C-j> :tabprevious<CR>
 nmap <C-h> :tabprevious<CR>""")""
+
+runtime! vim_file_chooser.vim
