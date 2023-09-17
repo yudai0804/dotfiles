@@ -4,7 +4,8 @@
 ubuntu22.04  
 vim8.2  
 zsh 5.8.1  
-tmux
+tmux  
+ranger
 ## dotfilesLink.sh
 ```
 sh dotfilesLink.sh
