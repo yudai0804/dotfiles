@@ -38,15 +38,15 @@ call dein#end()
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
 if has('filetype')
-  filetype indent plugin on
+	filetype indent plugin on
 endif
 
 
 if &term =~ '256color'
-  " disable Background Color Erase (BCE) so that color schemes
-  " render properly when inside 256-color tmux and GNU screen.
-  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-   set t_ut=
+	" disable Background Color Erase (BCE) so that color schemes
+	" render properly when inside 256-color tmux and GNU screen.
+	" see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+	set t_ut=
 endif
 
 syntax enable
@@ -77,7 +77,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='solarized'
 " Uncomment if you want to install not-installed plugins on startup.
 if dein#check_install()
- call dein#install()
+	call dein#install()
 endif
 "括弧を補完する
 inoremap { {}<LEFT>
@@ -91,6 +91,7 @@ set ttimeoutlen=10
 
 " インデントの設定
 set tabstop=4
+set shiftwidth=4
 set autoindent
 set smartindent
 set cindent
@@ -100,11 +101,12 @@ filetype on
 
 augroup vimrc
     " 以前の autocmd コマンドをクリア
-    autocmd!
+	autocmd!
 
-    " C/C++/Java 言語系のファイルタイプが設定されたら cindent モードを有効にする
-    autocmd FileType c,cpp setlocal shiftwidth=4 softtabstop=4 ts=4
-    autocmd FileType rust setlocal shiftwidth=4 softtabstop=4 ts=4 expandtab
+	" C/C++/Java 言語系のファイルタイプが設定されたら cindent モードを有効にする
+	autocmd FileType c,cpp setlocal shiftwidth=4 softtabstop=4 ts=4
+	autocmd FileType rust setlocal shiftwidth=4 softtabstop=4 ts=4 expandtab
+	autocmd FileType python setlocal shiftwidth=4 softtabstop=4 ts=4 expandtab
 
 augroup END"""
 
