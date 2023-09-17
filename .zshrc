@@ -6,12 +6,6 @@ export PATH="/home/yudai/.cache/git-fuzzy/bin:$PATH"
 ZSH_THEME="agnoster"
 
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
-TERM=xterm-256color
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
-# tabでautosuggest,shitf + tabで通常補完
-#ref:https://github.com/zsh-users/zsh-autosuggestions/issues/532
-bindkey '^I'      autosuggest-accept
-
 # 読み込み
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -36,7 +30,6 @@ alias gc='git commit'
 
 alias v='vim'
 alias s='sudo'
-
 
 # キーバインド
 # KEYTIMEOUTを短くする
@@ -71,6 +64,13 @@ setopt hist_ignore_all_dups   # 履歴が重複した場合に古い履歴を削
 setopt hist_ignore_dups       # 前回のイベントと重複する場合、履歴に保存しない
 setopt hist_save_no_dups      # 履歴ファイルに書き出す際、新しいコマンドと重複する古いコマンドは切り捨てる
 setopt share_history          # 全てのセッションで履歴を共有する
+
+# autosuggest関連の設定
+TERM=xterm-256color
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
+# tabでautosuggest,shitf + tabで通常補完
+#ref:https://github.com/zsh-users/zsh-autosuggestions/issues/532
+bindkey '^I' autosuggest-accept
 
 fcd() {
     if [[ "$#" != 0 ]]; then
