@@ -28,6 +28,8 @@ call dein#add('ryanoasis/vim-devicons')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
 call dein#add('tpope/vim-fugitive')
+call dein#add('francoiscabrol/ranger.vim')
+call dein#add('rbgrouleff/bclose.vim')
 call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
 " Finish Dein initialization (required)
 call dein#end()
@@ -121,4 +123,7 @@ nmap <C-k> :tabnext<CR>
 nmap <C-j> :tabprevious<CR>
 nmap <C-h> :tabprevious<CR>""")""
 
-runtime! vim_file_chooser.vim
+" 新しいタブをrangerで開く
+nmap <C-t> :RangerCurrentFileExistingOrNewTab<CR>
+let g:NERDTreeHijackNetrw = 0 "add this line if you use NERDTree
+let g:ranger_replace_netrw = 1 "open ranger when vim open a directory
