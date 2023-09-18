@@ -34,6 +34,8 @@ call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
 " Finish Dein initialization (required)
 call dein#end()
 
+let g:coc_global_extensions = ['coc-json', 'coc-jedi', 'coc-highlight']
+
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
@@ -286,4 +288,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
+" 変な文字列が表示されなくようにするおまじない
+" vimのバグ？
+set t_RV=
