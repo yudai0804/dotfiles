@@ -55,6 +55,8 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set background=dark
 set t_Co=16
 autocmd vimenter * ++nested colorscheme solarized8
+" make the background transparent
+let g:solarized_termtrans=1
 " nerdree
 " 常にNERDTreeを表示する
 "autocmd VimEnter * execute 'NERDTree'
@@ -285,5 +287,3 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-" make the background transparent
-let g:solarized_termtrans=1
