@@ -34,7 +34,7 @@ call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
 " Finish Dein initialization (required)
 call dein#end()
 
-let g:coc_global_extensions = ['coc-json', 'coc-jedi', 'coc-highlight']
+let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-highlight']
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
@@ -71,6 +71,10 @@ set number
 set listchars=eol:↲,tab:>-,trail:_
 set list
 set mouse=a
+
+" 画面の端で行を折り返すのをやめる
+set nowrap
+
 "-------------------------
 " Show double byte spaces
 "-------------------------
