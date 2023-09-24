@@ -4,8 +4,36 @@
 ubuntu22.04  
 vim8.2  
 zsh 5.8.1  
+fzf  
 tmux  
 ranger
+
+### Vim
+```
+sudo apt install vim
+```
+
+### zsh
+```
+sudo apt install zsh
+```
+
+### fzf
+```
+sudo apt install fzf
+```
+
+### tmux
+```
+sudo apt install tmux
+```
+
+### ranger
+```
+sudo apt-get install ranger w3m lynx highlight atool mediainfo xpdf caca-utils
+ranger --copy-config=all
+```
+
 ## dotfilesLink.sh
 ```
 sh dotfilesLink.sh
