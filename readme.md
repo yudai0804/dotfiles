@@ -23,7 +23,21 @@ sh installer.sh
 インストーラー:https://github.com/Shougo/dein-installer.vim  
 
 ## 必要なフォント
-fontは[powerline fonts](https://github.com/powerline/fonts)と[Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)(アイコン用)が必要
-
+fontは[powerline fonts](https://github.com/powerline/fonts)と[Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)(アイコン用)が必要  
+### powerline fonts
+```
+sudo apt-get install fonts-powerline
+```
+### Nerd Fonts
+```
+git clone --filter=blob:none --sparse git@github.com:ryanoasis/nerd-fonts
+cd nerd-fonts
+git sparse-checkout add patched-fonts/JetBrainsMono
+bash install.sh
+```
 ## zshプラグイン
-zshのプラグインには[ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
+zshのプラグインには[ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)  
+oh-my-zshでプラグインを入れるときは  
+```
+git clone https://github.com/zsh-users/plugin_name ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/plugin_name
+```
