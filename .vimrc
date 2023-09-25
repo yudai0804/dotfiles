@@ -295,3 +295,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " 変な文字列が表示されなくようにするおまじない
 " vimのバグ？
 set t_RV=
+
+" If you have cloned fzf on ~/.fzf directory
+set rtp+=~/.fzf
+
