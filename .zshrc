@@ -31,6 +31,7 @@ alias gc='git commit'
 alias v='vim'
 alias s='sudo'
 
+alias python='python3'
 # キーバインド
 # KEYTIMEOUTを短くする
 KEYTIMEOUT=1

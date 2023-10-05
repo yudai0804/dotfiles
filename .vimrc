@@ -72,9 +72,6 @@ set listchars=eol:↲,tab:>-,trail:_
 set list
 set mouse=a
 
-" 画面の端で行を折り返すのをやめる
-set nowrap
-
 "-------------------------
 " Show double byte spaces
 "-------------------------
