@@ -2,7 +2,7 @@
 
 ## 開発環境
 ubuntu22.04  
-alacritty
+alacritty  
 vim8.2  
 zsh 5.8.1  
 fzf  
