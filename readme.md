@@ -2,12 +2,17 @@
 
 ## 開発環境
 ubuntu22.04  
+alacritty
 vim8.2  
 zsh 5.8.1  
 fzf  
 tmux  
 ranger
 
+### alacritty
+```
+cargo install alacritty
+```
 ### Vim
 ```
 sudo apt install vim
