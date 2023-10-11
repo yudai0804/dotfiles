@@ -6,3 +6,4 @@ ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/ranger/rifle.conf ~/.config/ranger/rifle.conf
 ln -sf ~/dotfiles/ranger/rc.conf ~/.config/ranger/rc.conf
+ln -sf ~/dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml

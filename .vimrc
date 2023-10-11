@@ -68,7 +68,8 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " 行数を表示
 set number
 " 行末を '↲'、タブを '>-'、末尾のスペースを '_' で表示
-set listchars=eol:↲,trail:_
+""set listchars=eol:↲,trail:_
+set listchars=tab:»-,trail:-,eol:↲,multispace:----
 set list
 set mouse=a
 
