@@ -191,6 +191,6 @@ exec --no-startup-id fcitx
 exec --no-startup-id "xset r rate 200 30"
 # ウィンドウのタイトルバーを消す
 for_window [class="^.*"] border pixel 1
-new_window 1pixel
+# new_window 1pixel
 # 壁紙を設定
 exec --no-startup-id feh --bg-fill ~/wallpaper.jpg
