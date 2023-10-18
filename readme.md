@@ -7,7 +7,8 @@ vim8.2
 zsh 5.8.1  
 fzf  
 tmux  
-ranger
+ranger  
+i3  
 
 ### alacritty
 ```
