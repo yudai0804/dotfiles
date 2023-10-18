@@ -185,5 +185,7 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+# キーボードの日本語入力を有効にする
 exec --no-startup-id fcitx
+# レスポンスの速度を早くする
 exec --no-startup-id "xset r rate 200 30"
