@@ -8,4 +8,4 @@ ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.config/ranger/rifle.conf ~/.config/ranger/rifle.conf
 ln -sf ~/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
 ln -sf ~/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-ln -sf ~/dotfiles/.confg/i3/config ~/.config/i3/config
+ln -sf ~/dotfiles/.config/i3/config ~/.config/i3/config
