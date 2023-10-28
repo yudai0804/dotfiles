@@ -5,3 +5,4 @@ autoload -Uz colors && colors
 autoload -Uz add-zsh-hook
 source ${HOME}/dotfiles/zsh/prompt.zsh
 source ${HOME}/dotfiles/zsh/history.zsh
+source ${HOME}/dotfiles/zsh/alias.zsh
