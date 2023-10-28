@@ -52,7 +52,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec alacritty
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -modi drun#run -show drun
@@ -190,6 +190,9 @@ bar {
 }
 # 自動起動
 exec --no-startup-id fcitx
+exec --no-startup-id redshift-gtk
 # ウィンドウのタイルバーを消す
 for_window [class="^.*"] border pixel 2
 
+bindsym $mod+F6 exec xbacklight -dec 2
+bindsym $mod+F7 exec xbacklight -inc 2
