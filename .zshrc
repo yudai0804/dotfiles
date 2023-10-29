@@ -19,6 +19,7 @@ source ${HOME}/dotfiles/zsh/prompt.zsh
 source ${HOME}/dotfiles/zsh/history.zsh
 source ${HOME}/dotfiles/zsh/alias.zsh
 source ${HOME}/dotfiles/zsh/function.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 bindkey "^[[3~" delete-char
 bindkey '^I'   complete-word       # tab          | complete
