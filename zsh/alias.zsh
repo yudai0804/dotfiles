@@ -1,5 +1,5 @@
-ls='ls --color=auto' 
-ll='ls -alF --color=auto'
+alias ls='ls --color=auto' 
+alias ll='ls -alF --color=auto'
 
 alias g='git'
 alias ga='git add'

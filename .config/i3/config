@@ -176,3 +176,5 @@ for_window [class="^.*"] border pixel 2
 # 明るさ調整
 bindsym $mod+F6 exec xbacklight -dec 2
 bindsym $mod+F7 exec xbacklight -inc 2
+# 電源管理
+bindsym $mod+p exec rofi -show p -modi p:$HOME/.local/bin/rofi-power-menu
