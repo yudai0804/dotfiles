@@ -1,6 +1,5 @@
 export EDITOR=vim
 export LANG=ja_JP.UTF-8
-
 KEYTIMEOUT=1
 # viのキーバインド
 bindkey -v 
@@ -21,3 +20,6 @@ source ${HOME}/dotfiles/zsh/history.zsh
 source ${HOME}/dotfiles/zsh/alias.zsh
 source ${HOME}/dotfiles/zsh/function.zsh
 
+bindkey "^[[3~" delete-char
+bindkey '^I'   complete-word       # tab          | complete
+bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosugges

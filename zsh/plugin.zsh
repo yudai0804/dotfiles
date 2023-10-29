@@ -20,12 +20,13 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### End of Zinit's installer chunk
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-completions
+zinit ice wait'!0'; zinit light zsh-users/zsh-syntax-highlighting
+zinit ice wait'!0'; zinit light zsh-users/zsh-autosuggestions
+zinit ice wait'!0'; zinit light zsh-users/zsh-completions
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # 補完候補を一覧表示したとき、Tabや矢印で移動できるようにする
 zstyle ':completion:*:default' menu select=1
 # サジェストのときの背景がおかしいので設定
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
+# TERM=xterm-256color
