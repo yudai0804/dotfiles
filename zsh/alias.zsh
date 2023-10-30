@@ -1,3 +1,5 @@
+alias vim='nvim'
+
 alias ls='ls --color=auto' 
 alias ll='ls -alF --color=auto'
 

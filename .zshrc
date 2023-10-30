@@ -1,4 +1,4 @@
-export EDITOR=vim
+export EDITOR=nvim
 export LANG=ja_JP.UTF-8
 KEYTIMEOUT=1
 # viのキーバインド
