@@ -158,7 +158,7 @@ bar {
 exec --no-startup-id fcitx
 exec --no-startup-id redshift-gtk
 # ウィンドウのタイルバーを消す
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 5
 # 明るさ調整
 bindsym $mod+F6 exec xbacklight -dec 2
 bindsym $mod+F7 exec xbacklight -inc 2
