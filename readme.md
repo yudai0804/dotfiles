@@ -1,5 +1,7 @@
 # dotfileのリポジトリ  
 
+wezterm keybind:https://wezfurlong.org/wezterm/config/default-keys.html
+
 ## 開発環境
 ubuntu22.04  
 alacritty  
