@@ -143,11 +143,11 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# resize
-bindsym $mod+o resize shrink width 5px or 5 ppt
-bindsym $mod+u resize grow height  5px or 5 ppt
-bindsym $mod+i resize shrink height 5px or 5 ppt
-bindsym $mod+y resize grow width 5px or 5 ppt
+# resize        
+bindsym $mod+y exec python3 ~/.config/i3/i3-smart-resize "Left" "1 px or 1 ppt"
+bindsym $mod+o exec python3 ~/.config/i3/i3-smart-resize "Right" "1 px or 1 ppt"
+bindsym $mod+u exec python3 ~/.config/i3/i3-smart-resize "Up" "1 px or 1 ppt"
+bindsym $mod+i exec python3 ~/.config/i3/i3-smart-resize "Down" "1 px or 1 ppt
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
