@@ -1,80 +1,13 @@
-# dotfileのリポジトリ  
+os:[EndeavourOS(i3wm)](https://discovery.endeavouros.com)  
+Shell [zsh](https://www.zsh.org)  
+WM [i3](https://i3wm.org)  
+Terminal [WezTerm](https://wezfurlong.org/wezterm/index.html)  
+Editor [NeoVim](https://neovim.io)  
+Filer [ranger](https://github.com/ranger/ranger)  
 
-## 開発環境
-ubuntu22.04  
-alacritty  
-vim8.2  
-zsh 5.8.1  
-fzf  
-tmux  
-ranger  
-i3  
+i3wmの設定は[endeavouros-i3wm-setup](https://github.com/endeavouros-team/endeavouros-i3wm-setup/tree/main)を使用  
+NeoVimの設定は[LazyVim](https://www.lazyvim.org)を使用  
+zshのプラグインマネージャに[zinit](https://github.com/zdharma-continuum/zinit)を使用  
+zshのプロンプトテーマには[Pure](https://github.com/sindresorhus/pure)を使用  
+colorschemeは[Tokyo Night Moon](https://github.com/folke/tokyonight.nvim)を使用
 
-### alacritty
-```
-cargo install alacritty
-mkdir -p ~/.config/alacritty/themes
-git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
-```
-### Vim
-```
-sudo apt install vim
-```
-
-### zsh
-```
-sudo apt install zsh
-```
-
-### fzf
-```
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-```
-
-### tmux
-```
-sudo apt install tmux
-```
-
-### ranger
-```
-sudo apt-get install ranger w3m lynx highlight atool mediainfo xpdf caca-utils
-ranger --copy-config=all
-```
-
-## dotfilesLink.sh
-```
-sh dotfilesLink.sh
-```
-を実行すると、dotfileのシンボリックオペレーションが作成される。
-
-## dein.vimをインストールする
-[dein.vim](https://github.com/Shougo/dein.vim)とは、vimのプラグインマネージャである。  
-インストール方法  
-```
-wget https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh
-sh installer.sh
-```
-これでdein.vimがインストールされて、vim起動時に.vimrcに書かれているプラグインが自動でダウンロードされる。  
-インストーラー:https://github.com/Shougo/dein-installer.vim  
-
-## 必要なフォント
-fontは[powerline fonts](https://github.com/powerline/fonts)と[Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)(アイコン用)が必要  
-### powerline fonts
-```
-sudo apt-get install fonts-powerline
-```
-### Nerd Fonts
-```
-git clone --filter=blob:none --sparse git@github.com:ryanoasis/nerd-fonts
-cd nerd-fonts
-git sparse-checkout add patched-fonts/JetBrainsMono
-bash install.sh
-```
-## zshプラグイン
-zshのプラグインには[ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)  
-oh-my-zshでプラグインを入れるときは  
-```
-git clone https://github.com/zsh-users/plugin_name ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/plugin_name
-```

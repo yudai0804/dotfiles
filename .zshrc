@@ -1,39 +1,36 @@
-export ZSH=$HOME/.oh-my-zsh
-export EDITOR=vim
-export PATH="/home/yudai/.cache/git-fuzzy/bin:$PATH"
-# zsh関連
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
 
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
-# 読み込み
-source $ZSH/oh-my-zsh.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
 
-# alias
-alias h='fc -lt '%F %T' 1'
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit's installer chunk
 
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+# prompt theme
+zinit ice pick"async.zsh" src"pure.zsh"
+zinit light sindresorhus/pure
 
-alias g='git'
-alias ga='git add'
-alias gd='git diff'
-alias gs='git status'
-alias gp='git push'
-alias gb='git branch'
-alias gst='git status'
-alias gco='git checkout'
-alias gf='git fetch'
-alias gc='git commit'
+zinit ice wait'!0'; zinit light zsh-users/zsh-syntax-highlighting
+zinit ice wait'!0'; zinit light zsh-users/zsh-autosuggestions
+zinit ice wait'!0'; zinit light zsh-users/zsh-completions
+# 補完で小文字でも大文字にマッチさせる
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+# 補完候補を一覧表示したとき、Tabや矢印で移動できるようにする
+zstyle ':completion:*:default' menu select=1
 
-alias v='vim'
-alias s='sudo'
+# fzf
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
-alias python='python3'
-# キーバインド
-# KEYTIMEOUTを短くする
+export EDITOR=nvim
+export LANG=ja_JP.UTF-8
 KEYTIMEOUT=1
 # viのキーバインド
 bindkey -v 
@@ -43,22 +40,10 @@ setopt auto_param_keys
 setopt correct
 # コマンドライン全てのスペルチェックをする
 setopt correct_all
-# sudo の後ろでコマンド名を補完する
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-                   /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-# setopt auto_pushd
-# 長いので、自分のユーザー名とPCの名前を出さないようにする
-prompt_context () { }
 
-# Vim上でC-qやC-sを使えるようにするおまじない
-stty -ixon
-# -----------------------------
-# History
-# -----------------------------
-# 基本設定
-HISTFILE=$HOME/.zsh-history
-HISTSIZE=10000
-SAVEHIST=100000
+export HISTFILE=$HOME/.zsh-history
+export HISTSIZE=10000
+export SAVEHIST=100000
 
 setopt hist_expire_dups_first # 履歴を切り詰める際に、重複する最も古いイベントから消す
 setopt hist_ignore_all_dups   # 履歴が重複した場合に古い履歴を削除する
@@ -66,81 +51,27 @@ setopt hist_ignore_dups       # 前回のイベントと重複する場合、履
 setopt hist_save_no_dups      # 履歴ファイルに書き出す際、新しいコマンドと重複する古いコマンドは切り捨てる
 setopt share_history          # 全てのセッションで履歴を共有する
 
-# autosuggest関連の設定
-TERM=xterm-256color
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
-# tabでautosuggest,shitf + tabで通常補完
-#ref:https://github.com/zsh-users/zsh-autosuggestions/issues/532
-bindkey '^I' autosuggest-accept
+autoload -Uz compinit && compinit
+autoload -Uz colors && colors
+autoload -Uz add-zsh-hook
 
-fcd() {
-    if [[ "$#" != 0 ]]; then
-        builtin cd "$@";
-        return
-    fi
-    while true; do
-        local lsd=$(echo '..' & ls -Ap | grep '/$' | sed 's;/$;;')
-        local dir="$(printf '%s\n' "${lsd[@]}" |
-            fzf --reverse --preview '
-                __cd_nxt="$(echo {})";
-                __cd_path="$(echo $(pwd)/${__cd_nxt} | sed "s;//;/;")";
-                echo $__cd_path;
-                echo;
-                ls -p --color=always "${__cd_path}";
-        ')"
-        [[ ${#dir} != 0 ]] || return 0
-        builtin cd "$dir" &> /dev/null
-    done
-}
+bindkey "^[[3~" delete-char
+bindkey '^I'   complete-word       # tab          | complete
+bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosugges
 
-# ref:https://qiita.com/reviry/items/e798da034955c2af84c5
-fadd() {
-  local out q n addfiles
-  while out=$(
-      git status --short |
-      awk '{if (substr($0,2,1) !~ / /) print $2}' |
-      fzf-tmux --multi --ansi --exit-0 --expect=ctrl-d --preview="echo {} | awk '{print \$2}' | xargs git diff --color" | awk 'print $2'); do
-   q=$(head -1 <<< "$out")
-    n=$[$(wc -l <<< "$out") - 1]
-    addfiles=(`echo $(tail "-$n" <<< "$out")`)
-    [[ -z "$addfiles" ]] && continue
-    if [ "$q" = ctrl-d ]; then
-      git diff --color=always $addfiles | less -R
-    else
-      git add $addfiles
-    fi
-  done
-  echo "fadd coplete"
-}
+alias ls='ls --color=auto' 
+alias ll='ls -alF --color=auto'
 
-fd() {
-  preview="git diff $@ --color=always -- {-1}"
-  git diff $@ --name-only | fzf -m --ansi --preview $preview
-}
-
-
-# fbr - checkout git branch (including remote branches)
-fbr() {
-  local branches branch
-  branches=$(git branch --all | grep -v HEAD) &&
-  branch=$(echo "$branches" |
-           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
- git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-}
-
-# fshow - git commit browser
-fshow()
-{
-  git log --graph --all --color=always --format="%C(auto)%h%d %s %C(bold)%cr"  | \
-   fzf --ansi --no-sort --reverse --tiebreak=index --preview \
-   'f() { set -- $(echo -- "$@" | grep -o "[a-f0-9]\{7\}"); [ $# -eq 0 ] || git show --color=always $1 ; }; f {}' \
-   --bind "j:down,k:up,alt-j:preview-down,alt-k:preview-up,ctrl-f:preview-page-down,ctrl-b:preview-page-up,q:abort,ctrl-m:execute:
-                (grep -o '[a-f0-9]\{7\}' | head -1 |
-                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
-                {}
-    FZF-EOF" \
-    --preview-window='right,50%,border-left'
-}
+alias g='git'
+alias ga='git add'
+alias gd='gi diff'
+alias gst='git status'
+alias gp='git push'
+alias gpush='git push'
+alias gpull='git pull'
+alias gb='git branch'
+alias gco='git checkout'
+alias gc='git commit'
 
 # rangerが多重に起動するのを防止する
 # https://qiita.com/ssh0/items/fe85da119c93333ba34e
@@ -152,5 +83,3 @@ function r() {
        exit
    fi
 }
-[ -n "$RANGER_LEVEL" ] && PS1="(RANGER) $PS1"
-alias rng='ranger'
