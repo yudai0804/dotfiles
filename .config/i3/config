@@ -95,11 +95,10 @@ bindsym $mod+Shift+9    move container to workspace  $ws9
 bindsym $mod+Shift+0    move container to workspace  $ws10
 
 # resize window (you can also use the mouse for that):
-
-bindsym $mod+y exec ~/.config/i3/scripts/i3-smart-resize "Left" "1 px or 1 ppt"
-bindsym $mod+o exec ~/.config/i3/scripts/i3-smart-resize "Right" "1 px or 1 ppt"
-bindsym $mod+u exec ~/.config/i3/scripts/i3-smart-resize "Up" "1 px or 1 ppt"
-bindsym $mod+i exec ~/.config/i3/scripts/i3-smart-resize "Down" "1 px or 1 ppt"
+bindsym $mod+y resize shrink width 1 px or 1 ppt
+bindsym $mod+u resize grow height 1 px or 1 ppt
+bindsym $mod+i resize shrink height 1 px or 1 ppt
+bindsym $mod+o resize grow width 1 px or 1 ppt
 
 ######################################
 # keybindings for different actions: #
