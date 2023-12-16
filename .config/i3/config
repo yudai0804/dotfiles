@@ -330,6 +330,9 @@ exec --no-startup-id sleep 1 && feh --bg-fill ~/Pictures/Wallpapers/bigsur.jpg
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
 
+# key input speed 
+exec --no-startup-id xset r rate 150 20
+
 # disable power saving (for example if using xscreensaver)
 #exec --no-startup-id xset -dpms
 

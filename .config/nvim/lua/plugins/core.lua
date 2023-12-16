@@ -170,6 +170,8 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "tsx",
         "typescript",
+        "c",
+        "cpp",
       })
     end,
   },
@@ -209,7 +211,7 @@ return {
         "shellcheck",
         "shfmt",
         "flake8",
-        "ccls",
+        "clangd",
       },
     },
   },
