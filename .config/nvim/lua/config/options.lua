@@ -10,3 +10,4 @@ vim.opt.relativenumber = false
 vim.opt.backup = false
 vim.opt.clipboard = "unnamedplus"
 vim.opt.swapfile = false
+vim.opt.wrap = true
