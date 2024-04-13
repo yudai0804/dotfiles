@@ -29,6 +29,8 @@ zstyle ':completion:*:default' menu select=1
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+export PATH="${PATH}:$HOME/.local/bin/nvim-linux64/bin"
+
 export EDITOR=nvim
 export LANG=ja_JP.UTF-8
 KEYTIMEOUT=1
@@ -62,7 +64,6 @@ bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosugges
 alias ls='ls --color=auto' 
 alias ll='ls -alF --color=auto'
 
-alias g='git'
 alias ga='git add'
 alias gd='gi diff'
 alias gst='git status'
@@ -72,6 +73,9 @@ alias gpull='git pull'
 alias gb='git branch'
 alias gco='git checkout'
 alias gc='git commit'
+
+alias g='g++ -std=c++20 -g -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal -Wno-char-subscripts -ftrapv -fsanitize=address,undefined -fno-omit-frame-pointer -fno-sanitize-recover'
+alias g+='g++ -std=c++20 -O2 -Wall -Wextra'
 
 # rangerが多重に起動するのを防止する
 # https://qiita.com/ssh0/items/fe85da119c93333ba34e
