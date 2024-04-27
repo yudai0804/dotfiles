@@ -74,8 +74,8 @@ alias gb='git branch'
 alias gco='git checkout'
 alias gc='git commit'
 
-alias g='g++ -std=c++20 -g -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal -Wno-char-subscripts -ftrapv -fsanitize=address,undefined -fno-omit-frame-pointer -fno-sanitize-recover'
-alias g+='g++ -std=c++20 -O2 -Wall -Wextra'
+alias g="g++ -std=c++20 -g -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal -Wno-char-subscripts -ftrapv -fsanitize=address,undefined -fno-omit-frame-pointer -fno-sanitize-recover -I $HOME/ac-library"
+alias g+="g++ -std=c++20 -O2 -Wall -Wextra -I $HOME/ac-library"
 
 # rangerが多重に起動するのを防止する
 # https://qiita.com/ssh0/items/fe85da119c93333ba34e
