@@ -10,4 +10,7 @@ ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.xprofile ~/.xprofile
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 
+ln -sf ~/dotfiles/.bashrc ~/.bashrc
+ln -sf ~/dotfiles/.vimrc ~/.vimrc
+
 ln -sf ~/dotfiles/Wallpapers/bigsur.jpg ~/Pictures/Wallpapers/bigsur.jpg
