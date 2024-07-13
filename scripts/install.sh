@@ -60,3 +60,4 @@ rm -rf lazygit lazygit.tar.gz
 
 # 各種configをdotfileからコピー
 bash link.sh
+touch ~/.bashrc_local
