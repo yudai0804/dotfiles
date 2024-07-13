@@ -8,7 +8,7 @@ set autoindent
 set smartindent
 set smarttab
 set noswapfile
-
+set clipboard+=unnamed
 " undo
 if has('persistent_undo')
   set undodir=~/.vim/undo

@@ -37,6 +37,10 @@ sudo apt purge -y nodejs npm
 # 便利ツール
 
 # vim関連
+# もともと入っているvimを消してgtk-vimを入れる
+# 入れなおす理由はgtk-vimはclipboardに対応しているから
+sudo apt purge vim -y
+sudo apt install gtk-vim -y
 mkdir ~/.vim/colors -p
 # monokaiをインストール
 #!/bin/bash

@@ -1,3 +1,9 @@
+# 対応環境
+- Ubuntu
+- i3wm(Endeavour OS)
+  - install.shは非対応
+  - dotfiles自体は使える
+
 # gitのアカウントを設定する
 手順的には設定しなくても大丈夫だが、インストールに失敗したときに、gitconfigがコピーされてしまって面倒なので事前に設定しておいた方がいい。
 ```
@@ -14,6 +20,7 @@ ssh-keygen -t rsa
 GitHubで追加するときはauthenitiaciton Keyを選ぶ
 
 # インストール
+インストールされるものはinstall.shを読んでください。
 ```
 git clone git@github.com:yudai0804/dotfiles.git
 cd dotfiles
