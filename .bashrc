@@ -129,8 +129,12 @@ alias gb='git branch'
 alias gco='git checkout'
 alias gc='git commit'
 
+alias python='python3'
+
 alias g="g++ -std=c++20 -O2 -g -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal -Wno-char-subscripts -ftrapv -fsanitize=address,undefined -fno-omit-frame-pointer -fno-sanitize-recover -I $HOME/ac-library -o a"
 alias g+="g++ -std=c++20 -O2 -Wall -Wextra -I $HOME/ac-library -o a"
+
+
 function clip(){
   cat $1|xclip -selection clipboard
 }
