@@ -43,7 +43,6 @@ sudo apt purge vim -y
 sudo apt install gtk-vim -y
 mkdir ~/.vim/colors -p
 # monokaiをインストール
-#!/bin/bash
 rm -rf molokai
 git clone https://github.com/tomasr/molokai.git
 mv molokai/colors/molokai.vim ~/.vim/colors/
