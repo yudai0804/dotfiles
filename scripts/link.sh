@@ -1,4 +1,6 @@
 #!/bin/bash
+mkdir -p ~/.config
+
 ln -sfn ~/dotfiles/.config/i3 ~/.config/i3
 ln -sfn ~/dotfiles/.config/nvim ~/.config/nvim
 ln -sfn ~/dotfiles/.config/ranger ~/.config/ranger
@@ -12,5 +14,3 @@ ln -sf ~/dotfiles/.zshrc ~/.zshrc
 
 ln -sf ~/dotfiles/.bashrc ~/.bashrc
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
-
-ln -sf ~/dotfiles/Wallpapers/bigsur.jpg ~/Pictures/Wallpapers/bigsur.jpg

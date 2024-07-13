@@ -39,9 +39,11 @@ sudo apt purge -y nodejs npm
 # vim関連
 mkdir ~/.vim/colors -p
 # monokaiをインストール
-curl -OL https://github.com/tomasr/molokai/blob/master/colors/molokai.vim
-cp molokai.vim ~/.vim/colors/
-rm -rf molokai.vim
+#!/bin/bash
+rm -rf molokai
+git clone https://github.com/tomasr/molokai.git
+mv molokai/colors/molokai.vim ~/.vim/colors/
+rm -rf molokai
 # ranger
 sudo apt install ranger w3m lynx highlight atool mediainfo xpdf caca-utils -y
 # デフォルトで作られるrangerのconfigを削除
@@ -58,6 +60,6 @@ sudo install lazygit /usr/local/bin
 
 rm -rf lazygit lazygit.tar.gz
 
+touch ~/.bashrc_local
 # 各種configをdotfileからコピー
 bash link.sh
-touch ~/.bashrc_local
