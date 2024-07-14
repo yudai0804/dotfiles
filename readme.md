@@ -35,3 +35,39 @@ git clone git@github.com:yudai0804/dotfiles.git
 cd dotfiles
 ./scripts/install.sh
 ```
+# Windows Terminal
+Widows Terminalのデフォルトの配色(Cambell)だと明るい(太字)の青や紫は見やすいが普通の青や紫が見づらい。
+青や紫を見やすくした以下のcolorschme(Cambell Simple)を使うとよい。
+settings.jsonのcolorschmeのところにコピーすれば使える。
+```
+        {
+            "background": "#000000",
+            "black": "#0C0C0C",
+            "blue": "#3B78FF",
+            "brightBlack": "#767676",
+            "brightBlue": "#3B78FF",
+            "brightCyan": "#61D6D6",
+            "brightGreen": "#16C60C",
+            "brightPurple": "#B4009E",
+            "brightRed": "#E74856",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#F9F1A5",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#61D6D6",
+            "foreground": "#CCCCCC",
+            "green": "#16C60C",
+            "name": "Cambell Simple",
+            "purple": "#B4009E",
+            "red": "#E74856",
+            "selectionBackground": "#FFFFFF",
+            "white": "#CCCCCC",
+            "yellow": "#F9F1A5"
+        }
+```
+Cambell
+![Cambell](./images/Cambell.png)
+
+Cambell Simple
+普通の色も見やすい明るい色と同じ色にした
+![Cambell Simple](./images/Cambell Simple.png)
+
