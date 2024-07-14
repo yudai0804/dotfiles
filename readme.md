@@ -65,9 +65,9 @@ settings.jsonのcolorschmeのところにコピーすれば使える。
         }
 ```
 Cambell
-![Cambell](./images/Cambell.png)
+![Cambell]("./images/Cambell.png")
 
 Cambell Simple
 普通の色も見やすい明るい色と同じ色にした
-![Cambell Simple](./images/Cambell Simple.png)
+![Cambell Simple]("./images/Cambell Simple.png")
 
