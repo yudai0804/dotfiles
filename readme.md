@@ -69,7 +69,6 @@ Campbell
 ![Campbell](images/Campbell.png)
 
 Cambell Simple
-普通の色も見やすい明るい色と同じ色にした
 
 ![Campbell Simple](images/CampbellSimple.png)
 
