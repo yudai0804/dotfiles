@@ -63,6 +63,12 @@ sudo install lazygit /usr/local/bin
 
 rm -rf lazygit lazygit.tar.gz
 
+# bash
+
+# local用ファイル作成
 touch ~/.bashrc_local
+# git-promptをダウンロード
+curl -o ~/.git-prompt.sh \
+    https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 # 各種configをdotfileからコピー
 bash link.sh

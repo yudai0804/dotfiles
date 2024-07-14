@@ -51,7 +51,7 @@ settings.jsonのcolorschmeのところにコピーすれば使える。
             "brightPurple": "#B4009E",
             "brightRed": "#E74856",
             "brightWhite": "#F2F2F2",
-            "brightYellow": "#F9F1A5",
+            "brightYellow": "#C19C00",
             "cursorColor": "#FFFFFF",
             "cyan": "#61D6D6",
             "foreground": "#CCCCCC",
@@ -61,8 +61,8 @@ settings.jsonのcolorschmeのところにコピーすれば使える。
             "red": "#E74856",
             "selectionBackground": "#FFFFFF",
             "white": "#CCCCCC",
-            "yellow": "#F9F1A5"
-        }
+            "yellow": "#C19C00"
+        },
 ```
 Campbell
 
