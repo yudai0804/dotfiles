@@ -2,6 +2,7 @@
 mkdir -p ~/.config
 
 ln -sfn ~/dotfiles/.config/i3 ~/.config/i3
+ln -sfn ~/dotfiles/.config/lazygit ~/.config/lazygit
 ln -sfn ~/dotfiles/.config/nvim ~/.config/nvim
 ln -sfn ~/dotfiles/.config/ranger ~/.config/ranger
 ln -sfn ~/dotfiles/.config/rofi ~/.config/rofi

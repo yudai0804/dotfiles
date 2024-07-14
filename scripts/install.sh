@@ -34,6 +34,9 @@ sudo npm install n -g
 sudo n stable
 sudo apt purge -y nodejs npm
 
+# octave
+sudo apt install octave -y
+
 # 便利ツール
 
 # vim関連
