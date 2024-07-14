@@ -56,7 +56,7 @@ settings.jsonのcolorschmeのところにコピーすれば使える。
             "cyan": "#61D6D6",
             "foreground": "#CCCCCC",
             "green": "#16C60C",
-            "name": "Cambell Simple",
+            "name": "Campbell Simple",
             "purple": "#B4009E",
             "red": "#E74856",
             "selectionBackground": "#FFFFFF",
@@ -64,10 +64,10 @@ settings.jsonのcolorschmeのところにコピーすれば使える。
             "yellow": "#F9F1A5"
         }
 ```
-Cambell
-![Cambell](images/Cambell.png)
+Campbell
+![Campbell](images/Campbell.png)
 
 Cambell Simple
 普通の色も見やすい明るい色と同じ色にした
-![Cambell Simple](images/Cambell Simple.png)
+![Campbell Simple](images/CampbellSimple.png)
 
