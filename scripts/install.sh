@@ -12,6 +12,8 @@ set -u
 sudo apt update
 sudo apt upgrade -y
 
+sudo apt install curl -y
+
 # 開発環境系をインストール
 
 # gcc
@@ -41,10 +43,10 @@ sudo apt install octave -y
 # 便利ツール
 
 # vim関連
-# もともと入っているvimを消してgtk-vimを入れる
-# 入れなおす理由はgtk-vimはclipboardに対応しているから
+# もともと入っているvimを消してvim-gtkを入れる
+# 入れなおす理由はvim-gtkはclipboardに対応しているから
 sudo apt purge vim -y
-sudo apt install gtk-vim -y
+sudo apt install vim-gtk3 -y
 mkdir ~/.vim/colors -p
 # monokaiをインストール
 rm -rf molokai
