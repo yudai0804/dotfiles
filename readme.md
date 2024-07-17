@@ -22,6 +22,7 @@ git config --global user.email myname@example.com
 
 ## ssh key生成手順
 ```
+mkdir -p ~/.ssh
 cd ~/.ssh
 ssh-keygen -t rsa
 ```

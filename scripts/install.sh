@@ -21,6 +21,7 @@ git clone https://github.com/atcoder/ac-library.git ~/ac-library
 
 # python
 # python3-pipを入れる
+sudo apt install python3 -y
 sudo apt install python3-pip -y
 # GUI用にpython3-tkを入れる
 sudo apt install python3-tk -y
