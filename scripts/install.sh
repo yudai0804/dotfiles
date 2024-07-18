@@ -1,12 +1,7 @@
 #!/bin/bash
+set -euxo pipefail
 
-cd `dirname $0`
-# 処理がエラーとなったら中断
-set -e
-# パイプライン内のコマンドがエラーとなったら中断
-set -o pipefail
-# 変数の設定漏れを防止
-set -u
+cd "$(dirname "$0")"
 
 # とりあえずupdateとupgrade
 sudo apt update
