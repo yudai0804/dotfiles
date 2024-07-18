@@ -139,6 +139,9 @@ alias g+="g++ -std=c++20 -O2 -Wall -Wextra -I $HOME/ac-library -o a"
 
 export EDITOR=vim
 
+# for cargo
+export PATH=$HOME/.cargo/bin:$PATH
+
 source ~/.bashrc_local
 
 if [ -f ~/.git-prompt.sh ]; then
