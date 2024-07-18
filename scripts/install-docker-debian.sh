@@ -22,3 +22,12 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 
 # Verify that the installation is successful by running the hello-world image
 sudo docker run hello-world
+
+# sudoなしでdockerコマンドを使えるようにする。
+# dockerグループがなければ作る
+sudo groupadd docker
+# 現行ユーザをdockerグループに所属させる
+sudo gpasswd -a $USER docker
+sudo systemctl restart docker
+# exitして再ログインすると反映される。
+# exit
