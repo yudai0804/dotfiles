@@ -6,10 +6,9 @@ function main {
     cd "$(dirname "$0")"
 
     # check dotfiles path
-    if [ $(pwd) != $HOME/dotfiles/scripts ]; then
+    if [ ! -d $HOME/dotfiles/scripts ]; then
         echo "dotfiles path invalid."
         echo "You have to clone to "$HOME/dotfiles""
-        echo "pwd=$(pwd)"
         return 1
      fi
 
@@ -67,7 +66,7 @@ function main {
     # 入れなおす理由はvim-gtkはclipboardに対応しているから
     sudo apt purge vim -y
     sudo apt install vim-gtk3 -y
-    mkdir ~/.vim/colors -p
+    mkdir $HOME/.vim/colors -p
     # monokaiをインストール
     if [ ! -f $HOME/.vim/colors/molokai.vim ]; then
         curl -o $HOME/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
@@ -75,7 +74,7 @@ function main {
     # ranger
     sudo apt install ranger w3m lynx highlight atool mediainfo xpdf caca-utils -y
     # デフォルトで作られるrangerのconfigを削除
-    rm -rf ~/.config/ranger
+    rm -rf $HOME/.config/ranger
     # xclip
     sudo apt install xclip -y
     # ascii
