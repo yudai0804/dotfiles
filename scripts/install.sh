@@ -1,7 +1,17 @@
 #!/bin/bash
+function main {
+
 set -euxo pipefail
 
 cd "$(dirname "$0")"
+
+# check dotfiles path
+if [ $(pwd) != $HOME/dotfiles/scripts ]; then
+	echo "dotfiles path invalid."
+    echo "You have to clone to "$HOME/dotfiles""
+    echo "pwd=$(pwd)"
+	return 1
+ fi
 
 # とりあえずupdateとupgrade
 sudo apt update
@@ -14,7 +24,9 @@ sudo apt install curl -y
 # gcc
 sudo apt install gcc -y
 # ac-library
-git clone https://github.com/atcoder/ac-library.git ~/ac-library
+if [ ! -d $HOME/ac-library ]; then
+    git clone https://github.com/atcoder/ac-library.git ~/ac-library
+fi
 
 # python
 # python3-pipを入れる
@@ -32,8 +44,18 @@ sudo npm install n -g
 sudo n stable
 sudo apt purge -y nodejs npm
 
+# rust
+if [ ! -e $HOME/.cargo/bin/cargo]; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+fi
+
 # octave
 sudo apt install octave -y
+
+# Docker
+# if [ ! -e /usr/bin/docker ]; then
+    # TODO Dockerのインストールを書く
+# fi
 
 # 便利ツール
 
@@ -44,10 +66,9 @@ sudo apt purge vim -y
 sudo apt install vim-gtk3 -y
 mkdir ~/.vim/colors -p
 # monokaiをインストール
-rm -rf molokai
-git clone https://github.com/tomasr/molokai.git
-mv molokai/colors/molokai.vim ~/.vim/colors/
-rm -rf molokai
+if [! -e ~/.vim/colors/molokai.vim]; then
+    curl -o ~/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
+fi
 # ranger
 sudo apt install ranger w3m lynx highlight atool mediainfo xpdf caca-utils -y
 # デフォルトで作られるrangerのconfigを削除
@@ -56,6 +77,8 @@ rm -rf ~/.config/ranger
 sudo apt install xclip -y
 # ascii
 sudo apt install ascii -y
+# neofetch
+sudo apt install neofetch -y
 # lazygit
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
@@ -72,4 +95,12 @@ touch ~/.bashrc_local
 curl -o ~/.git-prompt.sh \
     https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 # 各種configをdotfileからコピー
-bash link.sh
+./link.sh
+
+# autoremove
+sudo apt autoremove -y
+
+return 0
+}
+
+main
