@@ -1,7 +1,7 @@
 #!/bin/bash
 function main {
 
-    set -euxo pipefail
+    set -euo pipefail
 
     cd "$(dirname "$0")"
 
