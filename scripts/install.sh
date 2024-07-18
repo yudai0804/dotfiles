@@ -3,14 +3,12 @@ function main {
 
     set -euo pipefail
 
-    cd "$(dirname "$0")"
-
     # check dotfiles path
-    if [ ! -d $HOME/dotfiles/scripts ]; then
-        echo "dotfiles path invalid."
-        echo "You have to clone to "$HOME/dotfiles""
-        return 1
-     fi
+    if [ ! -d $HOME/dotfiles/ ]; then
+        git clone https://github.com/yudai0804/dotfiles.git $HOME/dotfiles
+    fi
+
+    cd $HOME/dotfiles/scripts
 
     # とりあえずupdateとupgrade
     sudo apt update
