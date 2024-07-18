@@ -12,4 +12,5 @@ jobs:
       - name: git clone
         run: git clone https://github.com/yudai0804/dotfiles.git $HOME/dotfiles
       - name: Run test
-        run: scripts/install.sh
+        working-directory: scripts
+        run: install.sh
