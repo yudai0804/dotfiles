@@ -45,7 +45,7 @@ sudo n stable
 sudo apt purge -y nodejs npm
 
 # rust
-if [ ! -e $HOME/.cargo/bin/cargo]; then
+if [ ! -f $HOME/.cargo/bin/cargo ]; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 fi
 
@@ -66,7 +66,7 @@ sudo apt purge vim -y
 sudo apt install vim-gtk3 -y
 mkdir ~/.vim/colors -p
 # monokaiをインストール
-if [! -e ~/.vim/colors/molokai.vim]; then
+if [! -f ~/.vim/colors/molokai.vim ]; then
     curl -o ~/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
 fi
 # ranger
