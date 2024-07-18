@@ -16,9 +16,7 @@ dotfilesには
 # インストール
 インストールされるものはinstall.shを読んでください。
 ```
-git clone https://github.com/yudai0804/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-./scripts/install.sh
+curl https://raw.githubusercontent.com/yudai0804/dotfiles/master/scripts/install.sh | bash
 ```
 
 # gitのアカウントを設定する

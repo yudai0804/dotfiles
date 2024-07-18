@@ -10,4 +10,4 @@ jobs:
         run: apt-get update && apt-get install -y git sudo
       - uses: actions/checkout@v4
       - name: Run test
-        run: scripts/install.sh
+        run: curl https://raw.githubusercontent.com/yudai0804/dotfiles/master/scripts/install.sh | bash

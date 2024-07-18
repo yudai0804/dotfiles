@@ -8,3 +8,4 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 # tzdataをinstallしたあとにgitをインストールしないとビルドが成功しないので注意
 RUN apt-get install -y sudo
 RUN apt-get install -y git
+RUN apt-get install -y curl
