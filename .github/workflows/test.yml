@@ -7,7 +7,7 @@ jobs:
     container: ubuntu:latest
     steps:
       - name: Install require packages
-        run: apt-get update && apt-get install -y git sudo
+        run: apt-get update && apt-get install -y git sudo curl
       - uses: actions/checkout@v4
       - name: Run test
         run: curl https://raw.githubusercontent.com/yudai0804/dotfiles/master/scripts/install.sh | bash
