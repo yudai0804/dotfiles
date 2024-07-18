@@ -13,6 +13,14 @@ dotfilesには
 の2種類が含まれています。
 最近は後者のシンプルな構成のものをメインで使っています。
 
+# インストール
+インストールされるものはinstall.shを読んでください。
+```
+git clone https://github.com/yudai0804/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+./scripts/install.sh
+```
+
 # gitのアカウントを設定する
 手順的には設定しなくても大丈夫だが、インストールに失敗したときに、gitconfigがコピーされてしまって面倒なので事前に設定しておいた方がいい。
 ```
@@ -29,13 +37,6 @@ ssh-keygen -t rsa
 そしたらid_rsa.pubをGitHubに追加する。
 GitHubで追加するときはauthenitiaciton Keyを選ぶ
 
-# インストール
-インストールされるものはinstall.shを読んでください。
-```
-git clone git@github.com:yudai0804/dotfiles.git
-cd dotfiles
-./scripts/install.sh
-```
 # Windows Terminal
 Widows Terminalのデフォルトの配色(Cambell)だと明るい(太字)の青や紫は見やすいが普通の青や紫が見づらい。
 青や紫を見やすくした以下のcolorschme(Cambell Simple)を使うとよい。
