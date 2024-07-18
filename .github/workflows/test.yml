@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: All test
-        run: ./scripts/test-start.sh
+        run: scripts/test-start.sh
