@@ -7,7 +7,7 @@ jobs:
     container: ubuntu:latest
     steps:
       - name: Install require packages
-        run: apt-get update && apt-get -y git sudo
+        run: apt-get update && apt-get install -y git sudo
       - uses: actions/checkout@v4
       - name: git clone
         run: git clone https://github.com/yudai0804/dotfiles.git $HOME/dotfiles
