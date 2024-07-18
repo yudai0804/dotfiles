@@ -1,5 +1,6 @@
 # 対応環境
-- Ubuntu
+- Debian/Ubuntu
+  - GitHub Actionsで常にCIを走らせてるから、確実に動く。
   - WSLの場合、vimとWindowsのクリップボードの共有をするためにはひと手間必要。
   - このdotfilesはクリップボードの共有には非対応。
   - Windows Terminalを使っている場合、Ctrl+Shift+cやCtrl+Shift+vが使えるので、クリップボードの共有ができなくても問題ないはず。
