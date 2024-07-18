@@ -1,7 +1,6 @@
 [user]
 	name = yudai
 	email = yudai.yy0804@gmail.com
-	insteadOf = https://github.com/
 [color]
 	ui = true
 [alias]
@@ -16,5 +15,3 @@
 	diffFilter = diff-highlight
 [diff]
 	compactionHeuristic = true
-[url "git@github.com:"]
-	insteadOf = https://github.com/
