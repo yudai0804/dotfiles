@@ -120,6 +120,7 @@ alias ls='ls --color=auto'
 alias ll='ls -alF --color=auto'
 
 alias ga='git add'
+alias gaa='git add -A'
 alias gd='gi diff'
 alias gst='git status'
 alias gP='git push'
@@ -127,6 +128,8 @@ alias gp='git pull'
 alias gb='git branch'
 alias gco='git checkout'
 alias gc='git commit'
+alias gcm='git commit -m'
+alias gu='git add -A && git commit -m "update"'
 
 alias python='python3'
 alias lzg='lazygit'
@@ -146,7 +149,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 
-PS1='\[\033[32m\]\u@\h\[\033[00m\] \[\033[33m\]\w\[\033[1;36m\]$(__git_ps1 " (%s)")\[\033[00m\]\n\$ '
+PS1='\[\033[32m\]\u@\h\[\033[00m\] \[\033[33m\]\w\[\033[36m\]$(__git_ps1 " (%s)")\[\033[00m\]\n\$ '
 
 function clip(){
   cat $1|xclip -selection clipboard
