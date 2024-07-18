@@ -5,8 +5,6 @@ function main {
 
     cd "$(dirname "$0")"
 
-    echo "$HOME"
-    echo $(pwd)
     # check dotfiles path
     if [ $(pwd) != $HOME/dotfiles/scripts ]; then
         echo "dotfiles path invalid."
