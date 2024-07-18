@@ -2,8 +2,9 @@ name: test
 
 on: [push]
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - name: All test
-    - uses: actions/checkout@v4
-      run: ./scripts/test-start.sh
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: All test
+      - uses: actions/checkout@v4
+        run: ./scripts/test-start.sh
