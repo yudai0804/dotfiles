@@ -4,6 +4,7 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
+    container: ubuntu:latest
     steps:
       - name: Install require packages
         run: apt-get update && -y git sudo
