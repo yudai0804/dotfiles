@@ -10,5 +10,4 @@ jobs:
         run: apt-get update && apt-get install -y git sudo
       - uses: actions/checkout@v4
       - name: Run test
-        working-directory: ./scripts
-        run: install.sh
+        run: scripts/install.sh
