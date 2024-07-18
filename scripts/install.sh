@@ -40,9 +40,12 @@ function main {
     sudo apt install nodejs npm -y
     # npm installで最新のnodejsを入れる
     sudo npm install n -g
-    # 古いnodejsを削除
     sudo n stable
+    # 古いnodejsを削除
     sudo apt purge -y nodejs npm
+    sudo apt autoremove -y
+
+    # TODO: installerを2回目動かした際もnodejsをインストールしてしまうので対策する
 
     # rust
     if [ ! -f $HOME/.cargo/bin/cargo ]; then
@@ -53,7 +56,7 @@ function main {
     sudo apt install octave -y
 
 # Docker
-# if [ ! -e /usr/bin/docker ]; then
+# if [ ! -f /usr/bin/docker ]; then
         # TODO Dockerのインストールを書く
 # fi
 
@@ -66,8 +69,8 @@ function main {
     sudo apt install vim-gtk3 -y
     mkdir ~/.vim/colors -p
     # monokaiをインストール
-    if [! -f ~/.vim/colors/molokai.vim ]; then
-        curl -o ~/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
+    if [ ! -f $HOME/.vim/colors/molokai.vim ]; then
+        curl -o $HOME/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
     fi
     # ranger
     sudo apt install ranger w3m lynx highlight atool mediainfo xpdf caca-utils -y
@@ -80,20 +83,24 @@ function main {
     # neofetch
     sudo apt install neofetch -y
     # lazygit
-    LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-    curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-    tar xf lazygit.tar.gz lazygit
-    sudo install lazygit /usr/local/bin
+    if [ ! -f /usr/local/bin/lazygit ]; then
+        LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+        curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+        tar xf lazygit.tar.gz lazygit
+        sudo install lazygit /usr/local/bin
 
-    rm -rf lazygit lazygit.tar.gz
-
+        rm -rf lazygit lazygit.tar.gz
+    fi
     # bash
 
     # local用ファイル作成
-    touch ~/.bashrc_local
+    touch $HOME/.bashrc_local
     # git-promptをダウンロード
-    curl -o ~/.git-prompt.sh \
-        https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+    if [ ! -f $HOME/.git-prompt.sh ]; then
+        curl -o $HOME/.git-prompt.sh \
+            https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+    fi
+
     # 各種configをdotfileからコピー
     ./link.sh
 
