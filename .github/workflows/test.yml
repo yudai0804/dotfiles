@@ -5,6 +5,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Install require packages
+        run: apt-get update && -y git sudo
       - uses: actions/checkout@v4
-      - name: All test
-        run: scripts/test-start.sh
+      - name: git clone
+        run: git clone https://github.com/yudai0804/dotfiles.git $HOME/dotfiles
+      - name: Run test
+        run: scripts/install.sh
