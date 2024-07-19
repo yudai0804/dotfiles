@@ -36,6 +36,23 @@ ssh-keygen -t rsa
 そしたらid_rsa.pubをGitHubに追加する。
 GitHubで追加するときはauthenitiaciton Keyを選ぶ
 
+# Dockerメモ
+debian12の場合
+
+```
+cd docker/debian12
+docker build -t dotfiles_debian12 .
+docker run -it dotfiles_debian12 bash
+```
+
+Ubuntu22.04の場合
+
+```
+cd docker/ubuntu22.04
+docker build -t dotfiles_ubuntu22.04 .
+docker run -it dotfiles_ubuntu22.04 bash
+```
+
 # Windows Terminal
 Widows Terminalのデフォルトの配色(Cambell)だと明るい(太字)の青や紫は見やすいが普通の青や紫が見づらい。
 青や紫を見やすくした以下のcolorschme(Cambell Simple)を使うとよい。

@@ -33,14 +33,21 @@ function main {
     sudo apt install python3-tk -y
 
     # nodejsとnpm
-    # aptでnodejsとnpmをインストール
-    sudo apt install nodejs npm -y
-    # npm installで最新のnodejsを入れる
-    sudo npm install n -g
-    sudo n stable
-    # 古いnodejsを削除
-    sudo apt purge -y nodejs npm
-    sudo apt autoremove -y
+    # npmでインストールした最新バージョンのnodejsとnpmが存在していないときにのみ実行する
+    if [ ! -f "/usr/local/bin/node" ] || [ ! -f "/usr/local/bin/npm" ]; then
+        # aptでnodejsとnpmをインストール
+        sudo apt install -y nodejs npm
+
+        # npmでnodeをインストール
+        sudo npm install n -g
+        sudo n stable
+    fi
+
+    if [ -f "/usr/bin/node" ] || [ -f "/usr/bin/npm" ]; then
+        # 古いnodejsを削除
+        sudo apt purge -y nodejs npm
+        sudo apt autoremove -y
+    fi
 
     # TODO: installerを2回目動かした際もnodejsをインストールしてしまうので対策する
 
