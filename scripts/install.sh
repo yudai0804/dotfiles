@@ -14,12 +14,12 @@ function main {
     sudo apt update
     sudo apt upgrade -y
 
-    sudo apt install curl -y
+    sudo apt install -y curl
 
     # 開発環境系をインストール
 
     # gcc
-    sudo apt install gcc -y
+    sudo apt install -y gcc
     # ac-library
     if [ ! -d $HOME/ac-library ]; then
         git clone https://github.com/atcoder/ac-library.git ~/ac-library
@@ -27,10 +27,10 @@ function main {
 
     # python
     # python3-pipを入れる
-    sudo apt install python3 -y
-    sudo apt install python3-pip -y
+    sudo apt install -y python3
+    sudo apt install -y python3-pip
     # GUI用にpython3-tkを入れる
-    sudo apt install python3-tk -y
+    sudo apt install -y python3-tk
 
     # nodejsとnpm
     # npmでインストールした最新バージョンのnodejsとnpmが存在していないときにのみ実行する
@@ -55,7 +55,7 @@ function main {
     fi
 
     # octave
-    sudo apt install octave -y
+    sudo apt install -y octave
 
 # Docker
 # if [ ! -f /usr/bin/docker ]; then
@@ -67,29 +67,29 @@ function main {
     # vim関連
     # もともと入っているvimを消してvim-gtkを入れる
     # 入れなおす理由はvim-gtkはclipboardに対応しているから
-    sudo apt purge vim -y
-    sudo apt install vim-gtk3 -y
+    sudo apt purge -y vim
+    sudo apt install -y vim-gtk3
     mkdir $HOME/.vim/colors -p
     # monokaiをインストール
     if [ ! -f $HOME/.vim/colors/molokai.vim ]; then
         curl -o $HOME/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
     fi
     # ranger
-    sudo apt install ranger w3m lynx highlight atool mediainfo xpdf caca-utils -y
+    sudo apt install -y ranger w3m lynx highlight atool mediainfo xpdf caca-utils
     # デフォルトで作られるrangerのconfigを削除
     rm -rf $HOME/.config/ranger
     # xclip
     if [ $XDG_SESSION_TYPE = "wayland" ]; then
-        sudo apt install wl_clipboard -y
+        sudo apt install -y wl_clipboard
     else
         # wayland以外のときはWSL環境やCLI環境のことも考慮してxclipをインストールする
-        sudo apt install xclip -y
+        sudo apt install -y xclip
     fi
 
     # ascii
-    sudo apt install ascii -y
+    sudo apt install -y ascii
     # neofetch
-    sudo apt install neofetch -y
+    sudo apt install -y neofetch
     # lazygit
     if [ ! -f /usr/local/bin/lazygit ]; then
         LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
