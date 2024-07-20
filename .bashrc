@@ -154,6 +154,39 @@ GIT_PS1_SHOWUPSTREAM=auto
 
 PS1='\[\033[32m\]\u@\h\[\033[00m\] \[\033[33m\]\w\[\033[36m\]$(__git_ps1 " (%s)")\[\033[00m\]\n\$ '
 
-function clip(){
-  cat $1|xclip -selection clipboard
+function pbcopy {
+    if [ $XDG_SESSION_TYPE = "wayland" ]; then
+        if [ -n $(which "wl-copy") ]; then
+            wl-copy
+        else
+            echo "wl-copy not found.\nPlease install wl-clipboard."
+        fi
+    else
+        # WSL環境やCLI環境のことを考慮して、wayland以外であれば、xclipを使うというようにする
+        if [ -n $(which "xclip" ) ]; then
+            xclip -selection clipboard
+        else
+            echo "xclip not found.\nPlease install xclip."
+        fi
+    fi
 }
+
+function pbpaste {
+    if [ $XDG_SESSION_TYPE = "wayland" ]; then
+        if [ -n $(which "wl-paste") ]; then
+            wl-paste
+        else
+            echo "wl-paste not found.\nPlease install wl-clipboard."
+        fi
+    else
+        # WSL環境やCLI環境のことを考慮して、wayland以外であれば、xclipを使うというようにする
+        if [ -n $(which "xclip" ) ]; then
+            xclip -selection clipboard -o
+        else
+            echo "xclip not found.\nPlease install xclip."
+        fi
+    fi
+}
+
+alias copy='pbcopy'
+alias paste='pbpaste'

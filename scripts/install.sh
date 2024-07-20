@@ -49,8 +49,6 @@ function main {
         sudo apt autoremove -y
     fi
 
-    # TODO: installerを2回目動かした際もnodejsをインストールしてしまうので対策する
-
     # rust
     if [ ! -f $HOME/.cargo/bin/cargo ]; then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -81,7 +79,13 @@ function main {
     # デフォルトで作られるrangerのconfigを削除
     rm -rf $HOME/.config/ranger
     # xclip
-    sudo apt install xclip -y
+    if [ $XDG_SESSION_TYPE = "wayland" ]; then
+        sudo apt install wl_clipboard -y
+    else
+        # wayland以外のときはWSL環境やCLI環境のことも考慮してxclipをインストールする
+        sudo apt install xclip -y
+    fi
+
     # ascii
     sudo apt install ascii -y
     # neofetch
