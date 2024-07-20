@@ -155,7 +155,7 @@ GIT_PS1_SHOWUPSTREAM=auto
 PS1='\[\033[32m\]\u@\h\[\033[00m\] \[\033[33m\]\w\[\033[36m\]$(__git_ps1 " (%s)")\[\033[00m\]\n\$ '
 
 function pbcopy {
-    if [ $XDG_SESSION_TYPE = "wayland" ]; then
+    if [ ${XDG_SESSION_TYPE-} = "wayland" ]; then
         if [ -n $(which "wl-copy") ]; then
             wl-copy
         else
@@ -172,7 +172,7 @@ function pbcopy {
 }
 
 function pbpaste {
-    if [ $XDG_SESSION_TYPE = "wayland" ]; then
+    if [ ${XDG_SESSION_TYPE-} = "wayland" ]; then
         if [ -n $(which "wl-paste") ]; then
             wl-paste
         else
