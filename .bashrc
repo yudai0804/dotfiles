@@ -143,6 +143,10 @@ export PATH=$HOME/.cargo/bin:$PATH
 
 source ~/.bashrc_local
 
+if [ -f ~/.git-completion.sh ]; then
+    source ~/.git-completion.sh
+fi
+
 if [ -f ~/.git-prompt.sh ]; then
     source ~/.git-prompt.sh
 fi

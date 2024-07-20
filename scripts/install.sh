@@ -103,6 +103,11 @@ function main {
 
     # local用ファイル作成
     touch $HOME/.bashrc_local
+    # git-completionをダウンロード
+    if [ ! -f $HOME/.git-completion.sh ]; then
+        curl -o $HOME/.git-completion.sh \
+            https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+    fi
     # git-promptをダウンロード
     if [ ! -f $HOME/.git-prompt.sh ]; then
         curl -o $HOME/.git-prompt.sh \
