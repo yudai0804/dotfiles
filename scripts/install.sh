@@ -80,7 +80,7 @@ function main {
     rm -rf $HOME/.config/ranger
     # xclip
     if [ $XDG_SESSION_TYPE = "wayland" ]; then
-        sudo apt install -y wl_clipboard
+        sudo apt install -y wl-clipboard
     else
         # wayland以外のときはWSL環境やCLI環境のことも考慮してxclipをインストールする
         sudo apt install -y xclip
