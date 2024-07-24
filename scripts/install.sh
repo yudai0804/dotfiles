@@ -29,6 +29,7 @@ function main {
     # python3-pipを入れる
     sudo apt install -y python3
     sudo apt install -y python3-pip
+    sudo apt install -y python3-venv
     # GUI用にpython3-tkを入れる
     sudo apt install -y python3-tk
 
@@ -90,6 +91,8 @@ function main {
     sudo apt install -y ascii
     # neofetch
     sudo apt install -y neofetch
+    # tree
+    sudo apt install -y tree
     # lazygit
     if [ ! -f /usr/local/bin/lazygit ]; then
         LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')

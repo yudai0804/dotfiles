@@ -191,5 +191,35 @@ function pbpaste {
     fi
 }
 
+# rangerが多重に起動するのを防止する
+# https://qiita.com/ssh0/items/fe85da119c93333ba34e
+
+function ranger() {
+   if [ -z "$RANGER_LEVEL" ]; then
+       /usr/bin/ranger $@
+   else
+       exit
+   fi
+}
+
+alias r='ranger'
 alias copy='pbcopy'
 alias paste='pbpaste'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+source ~/z/z.sh
+
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+# fda - including hidden directories
+fda() {
+  local dir
+  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+}
