@@ -93,6 +93,8 @@ function main {
     sudo apt install -y neofetch
     # tree
     sudo apt install -y tree
+    # htop
+    sudo apt install -y htop
     # lazygit
     if [ ! -f /usr/local/bin/lazygit ]; then
         LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')

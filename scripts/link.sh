@@ -15,3 +15,7 @@ ln -sf ~/dotfiles/.zshrc ~/.zshrc
 
 ln -sf ~/dotfiles/.bashrc ~/.bashrc
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
+
+mkdir -p ~/.config/Code/User
+
+ln -sf ~/dotfiles/.config/Code/User/settings.json ~/.config/Code/User/settings.json
