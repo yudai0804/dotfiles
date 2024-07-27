@@ -226,3 +226,18 @@ fda() {
   local dir
   dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
 }
+
+# アスキーアートを表示する
+# lolcatが入っていればレインボーで表示する
+print_aa() {
+    if [ -n $(which figlet) ]; then
+        if [ -n $(which lolcat) ]; then
+            figlet -f slant "Welcome" | lolcat
+        else
+            figlet -f slant "Welcome"
+        fi
+    fi
+}
+
+
+print_aa

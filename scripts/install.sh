@@ -8,8 +8,18 @@ function main {
         git clone https://github.com/yudai0804/dotfiles.git $HOME/dotfiles
     fi
 
+    # figlet -f slant dotfiles
+    
+    echo -e "\e[35;1m
+           __      __  _____ __         
+  ____/ /___  / /_/ __(_) /__  _____
+ / __  / __ \/ __/ /_/ / / _ \/ ___/
+/ /_/ / /_/ / /_/ __/ / /  __(__  ) 
+\__,_/\____/\__/_/ /_/_/\___/____/  
+                                    
+    \e[m"
+    echo "start install scripts."
     cd $HOME/dotfiles/scripts
-
     # とりあえずupdateとupgrade
     sudo apt update
     sudo apt upgrade -y
@@ -95,6 +105,10 @@ function main {
     sudo apt install -y tree
     # htop
     sudo apt install -y htop
+    # figlet
+    sudo apt install -y figlet
+    # lolcat
+    sudo apt install -y lolcat
     # lazygit
     if [ ! -f /usr/local/bin/lazygit ]; then
         LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
