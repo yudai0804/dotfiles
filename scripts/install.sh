@@ -8,16 +8,22 @@ function main {
         git clone https://github.com/yudai0804/dotfiles.git $HOME/dotfiles
     fi
 
-    # figlet -f slant dotfiles
+    # figlet -f slant "Yudai0804's dotfiles"
     
-    echo -e "\e[35;1m
-           __      __  _____ __         
+    echo -e '\e[35;1m
+__  __          __      _ ____  ____  ____  __ __ _      
+\ \/ /_  ______/ /___ _(_) __ \( __ )/ __ \/ // /( )_____
+ \  / / / / __  / __ `/ / / / / __  / / / / // /_|// ___/
+ / / /_/ / /_/ / /_/ / / /_/ / /_/ / /_/ /__  __/ (__  ) 
+/_/\__,_/\__,_/\__,_/_/\____/\____/\____/  /_/   /____/  
+                                                         
+       __      __  _____ __         
   ____/ /___  / /_/ __(_) /__  _____
  / __  / __ \/ __/ /_/ / / _ \/ ___/
 / /_/ / /_/ / /_/ __/ / /  __(__  ) 
 \__,_/\____/\__/_/ /_/_/\___/____/  
                                     
-    \e[m"
+\e[m'
     echo "start install scripts."
     cd $HOME/dotfiles/scripts
     # とりあえずupdateとupgrade
