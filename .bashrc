@@ -131,6 +131,8 @@ alias gcm='git commit -m'
 alias gu='git add -A && git commit -m "update"'
 
 alias python='python3'
+alias p='python3'
+
 alias lzg='lazygit'
 
 alias g="g++ -std=c++20 -O2 -g -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal -Wno-char-subscripts -ftrapv -fsanitize=address,undefined -fno-omit-frame-pointer -fno-sanitize-recover -I $HOME/ac-library -o a"
@@ -204,6 +206,7 @@ function ranger() {
 
 alias r='ranger'
 alias copy='pbcopy'
+alias clip='pbcopy'
 alias paste='pbpaste'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
