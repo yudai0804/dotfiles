@@ -211,7 +211,7 @@ alias paste='pbpaste'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-source ~/z/z.sh
+[ -f ~/z/z.sh ] && source ~/z/z.sh
 
 # fd - cd to selected directory
 fd() {
@@ -228,7 +228,7 @@ fda() {
 }
 
 # アスキーアートを表示する
-# lolcatが入っていればレインボーで表示する
+# lolcatが入っていればレインボーで表示する(lolcatは動かない環境があるので注意)
 print_aa() {
     if [ -n $(which figlet) ]; then
         if [ -n $(which lolcat) ]; then

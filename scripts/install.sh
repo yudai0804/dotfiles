@@ -132,9 +132,10 @@ __  __          __      _ ____  ____  ____  __ __ _
     # figlet
     sudo apt install -y figlet
     # lolcat
+    # lolcatは動かない環境があるので注意
     sudo apt install -y lolcat
     # lazygit
-    if [ ! -f /usr/local/bin/lazygit ]; then
+    if [ -n $(which lazygit) ]; then
         LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
         curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
         tar xf lazygit.tar.gz lazygit
@@ -142,6 +143,12 @@ __  __          __      _ ____  ____  ____  __ __ _
 
         rm -rf lazygit lazygit.tar.gz
     fi
+    # fzf
+    # 参考:https://github.com/junegunn/fzf/tree/master
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    # allオプションをつけることで対話形式を避ける
+    ~/.fzf/install --all
+
     # bash
 
     # local用ファイル作成
@@ -162,6 +169,15 @@ __  __          __      _ ____  ____  ____  __ __ _
 
     # autoremove
     sudo apt autoremove -y
+
+    # bashrcを読み込んでエラーがでないかを確認
+    err="$(source ~/.bashrc 2>1& > /dev/null)"
+
+    if [ -n ${err-} ]; then
+        echo "bashrc error"
+        echo $err
+        return 1
+    fi
 
     return 0
 }
