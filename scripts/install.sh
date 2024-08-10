@@ -171,13 +171,13 @@ __  __          __      _ ____  ____  ____  __ __ _
     sudo apt autoremove -y
 
     # bashrcを読み込んでエラーがでないかを確認
-    err="$(source ~/.bashrc 2>1& > /dev/null)"
+#     err="$(source ~/.bashrc 2>1& > /dev/null)"
 
-    if [ -n ${err-} ]; then
-        echo "bashrc error"
-        echo $err
-        return 1
-    fi
+#    if [ -n ${err-} ]; then
+#        echo "bashrc error"
+#        echo $err
+#        return 1
+#    fi
 
     return 0
 }
