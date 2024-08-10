@@ -209,6 +209,14 @@ alias copy='pbcopy'
 alias clip='pbcopy'
 alias paste='pbpaste'
 
+if [ -n $(which kwrite) ]; then
+    alias notepad='kwrite'
+fi
+
+if [ -n $(which dolphin) ]; then
+    alias explorer='dolphin'
+fi
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 [ -f ~/z/z.sh ] && source ~/z/z.sh
