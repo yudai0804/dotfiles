@@ -73,6 +73,7 @@ __  __          __      _ ____  ____  ____  __ __ _
 
     # octave
     sudo apt install -y octave
+    sudo apt install -y octave-signal
 
 # Docker
 # if [ ! -f /usr/bin/docker ]; then
