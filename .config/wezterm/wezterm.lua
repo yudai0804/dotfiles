@@ -5,7 +5,7 @@ return {
 	use_ime = true,
 	animation_fps = 60,
 	prefer_egl = true,
-	font_size = 14.0,
+	font_size = 12.0,
 	use_fancy_tab_bar = false,
 	color_scheme = "Campbell (Gogh)"
 }
