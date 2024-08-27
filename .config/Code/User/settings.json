@@ -1,5 +1,4 @@
 {
-    "git.enableSmartCommit": true,
     "editor.formatOnSave": true,
     "editor.minimap.enabled": false,
     "explorer.confirmDelete": false,
