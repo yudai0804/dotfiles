@@ -6,6 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Set metadata
         id: metadata
         uses: docker/metadata-action@v5
@@ -19,4 +24,9 @@ jobs:
         run: |
           docker compose build
           docker image ls
+          COMMIT_HASH=$(git rev-parse HEAD)
+          docker tag dotfiles-debian yudai0804/dotfiles-debian:$COMMIT_HASH
+          docker tag yudai0804/dotfiles-debian:$COMMIT_HASH yudai0804/dotfiles-debian:latest
+          docker push yudai0804/dotfiles-debian -a
+
 
