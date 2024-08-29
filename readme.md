@@ -53,12 +53,22 @@ ssh-keygen -t rsa
 GitHubで追加するときはauthenitiaciton Keyを選ぶ
 
 # Docker
-debianのコンテナ作成
+
+yudai0804/dotfilesの内容が適用されたdocker imageのリンク  
+https://hub.docker.com/repository/docker/yudai0804/dotfiles-debian/general
+
+## 使い方
+```
+docker run -it yudai0804/dotfiles-debian:latest bash
+```
+
+## ビルド&&実行
 
 ```
 docker compose
 docker run -it dotfiles-yudai0804-debian bash
 ```
+
 # Windows Terminal
 Widows Terminalのデフォルトの配色(Cambell)だと明るい(太字)の青や紫は見やすいが普通の青や紫が見づらい。
 青や紫を見やすくした以下のcolorschme(Cambell Simple)を使うとよい。
