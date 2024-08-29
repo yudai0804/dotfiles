@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        name: Set metadata
+      - name: Set metadata
         id: metadata
         uses: docker/metadata-action@v5
         with:
