@@ -23,7 +23,6 @@ jobs:
       - name: Build
         run: |
           docker compose build
-          docker image ls
           COMMIT_HASH=$(git rev-parse HEAD)
           docker tag dotfiles-debian yudai0804/dotfiles-debian:$COMMIT_HASH
           docker tag yudai0804/dotfiles-debian:$COMMIT_HASH yudai0804/dotfiles-debian:latest
