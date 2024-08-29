@@ -161,14 +161,14 @@ PS1='\[\033[32m\]\u@\h\[\033[00m\] \[\033[33m\]\w\[\033[36m\]$(__git_ps1 " (%s)"
 
 function pbcopy {
     if [ ${XDG_SESSION_TYPE-} = "wayland" ]; then
-        if [ -n $(which "wl-copy") ]; then
+        if [ -n "$(which wl-copy)" ]; then
             wl-copy
         else
             echo "wl-copy not found.\nPlease install wl-clipboard."
         fi
     else
         # WSL環境やCLI環境のことを考慮して、wayland以外であれば、xclipを使うというようにする
-        if [ -n $(which "xclip" ) ]; then
+        if [ -n "$(which xclip)" ]; then
             xclip -selection clipboard
         else
             echo "xclip not found.\nPlease install xclip."
@@ -178,14 +178,14 @@ function pbcopy {
 
 function pbpaste {
     if [ ${XDG_SESSION_TYPE-} = "wayland" ]; then
-        if [ -n $(which "wl-paste") ]; then
+        if [ -n "$(which wl-paste)" ]; then
             wl-paste
         else
             echo "wl-paste not found.\nPlease install wl-clipboard."
         fi
     else
         # WSL環境やCLI環境のことを考慮して、wayland以外であれば、xclipを使うというようにする
-        if [ -n $(which "xclip" ) ]; then
+        if [ -n "$(which xclip)" ]; then
             xclip -selection clipboard -o
         else
             echo "xclip not found.\nPlease install xclip."
@@ -209,11 +209,11 @@ alias copy='pbcopy'
 alias clip='pbcopy'
 alias paste='pbpaste'
 
-if [ -n $(which kwrite) ]; then
+if [ -n "$(which kwrite)" ]; then
     alias notepad='kwrite'
 fi
 
-if [ -n $(which dolphin) ]; then
+if [ -n "$(which dolphin)" ]; then
     alias explorer='dolphin'
 fi
 
@@ -238,8 +238,8 @@ fda() {
 # アスキーアートを表示する
 # lolcatが入っていればレインボーで表示する(lolcatは動かない環境があるので注意)
 print_aa() {
-    if [ -n $(which figlet) ]; then
-        if [ -n $(which lolcat) ]; then
+    if [ -n "$(which figlet)" ]; then
+        if [ -n "$(which lolcat)" ]; then
             figlet -f slant "Welcome" | lolcat
         else
             figlet -f slant "Welcome"

@@ -67,7 +67,7 @@ __  __          __      _ ____  ____  ____  __ __ _
     fi
 
     # rust
-    if [ -n $(which cargo) ]; then
+    if [ -z "$(which cargo)" ]; then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
     fi
 
@@ -75,16 +75,11 @@ __  __          __      _ ____  ____  ____  __ __ _
     sudo apt install -y octave
     sudo apt install -y octave-signal
 
-# Docker
-# if [ ! -f /usr/bin/docker ]; then
-        # TODO Dockerのインストールを書く
-# fi
-
     # 便利ツール
 
     # vscode
     # 参考:https://code.visualstudio.com/docs/setup/linux
-    if [ -n $(which code) ]; then
+    if [ -z "$(which code)" ]; then
         sudo apt-get install -y wget gpg
         wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
         sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
@@ -136,7 +131,7 @@ __  __          __      _ ____  ____  ____  __ __ _
     # lolcatは動かない環境があるので注意
     sudo apt install -y lolcat
     # lazygit
-    if [ -n $(which lazygit) ]; then
+    if [ -z "$(which lazygit)" ]; then
         LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
         curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
         tar xf lazygit.tar.gz lazygit
@@ -170,15 +165,6 @@ __  __          __      _ ____  ____  ____  __ __ _
 
     # autoremove
     sudo apt autoremove -y
-
-    # bashrcを読み込んでエラーがでないかを確認
-#     err="$(source ~/.bashrc 2>1& > /dev/null)"
-
-#    if [ -n ${err-} ]; then
-#        echo "bashrc error"
-#        echo $err
-#        return 1
-#    fi
 
     return 0
 }
