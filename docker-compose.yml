@@ -1,6 +1,6 @@
 version: '3'
 services:
-  yudai0804-debian:
+  debian:
     build:
       context: .
       dockerfile: docker-debian/Dockerfile
