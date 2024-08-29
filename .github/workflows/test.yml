@@ -2,21 +2,12 @@ name: test
 
 on: [push]
 jobs:
-  ubuntu:
-    runs-on: ubuntu-latest
-    container: ubuntu:latest
-    steps:
-      - name: Install require packages
-        run: apt-get update && apt-get install -y git sudo curl
-      - uses: actions/checkout@v4
-      - name: Run test
-        run: scripts/install.sh
   debian:
     runs-on: ubuntu-latest
-    container: debian:latest
     steps:
-      - name: Install require packages
-        run: apt-get update && apt-get install -y git sudo curl
       - uses: actions/checkout@v4
-      - name: Run test
-        run: scripts/install.sh
+      - name: Build
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: false
