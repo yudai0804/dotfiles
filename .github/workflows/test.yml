@@ -9,9 +9,10 @@ jobs:
         name: Set metadata
         id: metadata
         uses: docker/metadata-action@v5
-        tags: |
-          type=semver,pattern={{raw}}
-          type=sha,format=short
+        with:
+          tags: |
+            type=semver,pattern={{raw}}
+            type=sha,format=short
       - name: Set up buildx
         uses: docker/setup-buildx-action@v3
       - name: Build
