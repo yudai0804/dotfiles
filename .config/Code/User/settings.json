@@ -2,5 +2,6 @@
     "editor.formatOnSave": true,
     "editor.minimap.enabled": false,
     "explorer.confirmDelete": false,
-    "extensions.ignoreRecommendations": true
+    "extensions.ignoreRecommendations": true,
+    "editor.stickyScroll.enabled": false
 }
