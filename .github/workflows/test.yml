@@ -21,8 +21,10 @@ jobs:
       - name: Set up buildx
         uses: docker/setup-buildx-action@v3
       - name: Build
-        run: |
+        run:
           docker compose build
+      - name: Push
+        run: |
           COMMIT_HASH=$(git rev-parse HEAD)
           docker tag dotfiles-debian yudai0804/dotfiles-debian:$COMMIT_HASH
           docker tag yudai0804/dotfiles-debian:$COMMIT_HASH yudai0804/dotfiles-debian:latest
