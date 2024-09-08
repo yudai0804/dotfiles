@@ -46,3 +46,9 @@ augroup vimrc
     autocmd FileType c,cpp,java  inoremap { {}<LEFT>
     autocmd FileType c,cpp,java  inoremap <silent> <expr> <CR> Indent2()
 augroup END
+
+" ファイルを開いたときに最後に合ったカーソルの位置に移動する
+augroup vimrcEx
+  au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
+  \ exe "normal g`\"" | endif
+augroup END
