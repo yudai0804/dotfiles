@@ -26,6 +26,8 @@ __  __          __      _ ____  ____  ____  __ __ _
 \e[m'
     echo "start install scripts."
     cd $HOME/dotfiles/scripts
+    # 各種configをdotfileからコピー
+    ./link.sh
     # とりあえずupdateとupgrade
     sudo apt update
     sudo apt upgrade -y
@@ -178,6 +180,7 @@ __  __          __      _ ____  ____  ____  __ __ _
     fi
 
     # 各種configをdotfileからコピー
+    # 念の為再度実行
     ./link.sh
 
     # autoremove
