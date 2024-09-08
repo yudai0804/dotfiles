@@ -143,6 +143,10 @@ export EDITOR=vim
 # for cargo
 export PATH=$HOME/.cargo/bin:$PATH
 
+# for pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 source ~/.bashrc_local
 
 if [ -f ~/.git-completion.sh ]; then

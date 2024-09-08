@@ -30,24 +30,29 @@ __  __          __      _ ____  ____  ____  __ __ _
     sudo apt update
     sudo apt upgrade -y
 
-    sudo apt install -y curl
+    if [ -z "$(which curl)" ]; then
+        sudo apt install -y curl
+    fi
 
     # 開発環境系をインストール
 
     # gcc
-    sudo apt install -y gcc
+    if [ -z "$(which gcc)" ]; then
+        sudo apt install -y gcc
+    fi
     # ac-library
     if [ ! -d $HOME/ac-library ]; then
         git clone https://github.com/atcoder/ac-library.git ~/ac-library
     fi
 
     # python
-    # python3-pipを入れる
-    sudo apt install -y python3
-    sudo apt install -y python3-pip
-    sudo apt install -y python3-venv
+    sudo apt install -y python3 python3-pip python3-venv
     # GUI用にpython3-tkを入れる
     sudo apt install -y python3-tk
+    # pyenv
+    if [ -z "$(pyenv)" ]; then
+        curl https://pyenv.run | bash
+    fi
 
     # nodejsとnpm
     # npmでインストールした最新バージョンのnodejsとnpmが存在していないときにのみ実行する
@@ -72,8 +77,9 @@ __  __          __      _ ____  ____  ____  __ __ _
     fi
 
     # octave
-    sudo apt install -y octave
-    sudo apt install -y octave-signal
+    if [ -z "$(which octave)" ]; then
+        sudo apt install -y octave octave-signal
+    fi
 
     # 便利ツール
 
@@ -106,9 +112,19 @@ __  __          __      _ ____  ____  ____  __ __ _
         curl -o $HOME/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
     fi
     # ranger
-    sudo apt install -y ranger w3m lynx highlight atool mediainfo xpdf caca-utils
-    # デフォルトで作られるrangerのconfigを削除
-    rm -rf $HOME/.config/ranger
+    if [ -z "$(which ranger)" ]; then 
+        sudo apt install -y ranger w3m lynx highlight atool mediainfo xpdf caca-utils
+        # デフォルトで作られるrangerのconfigを削除
+        rm -rf $HOME/.config/ranger
+    fi
+    # yazi
+    if [ -z "$(which yazi)" ]; then
+        cargo install --locked yazi-fm yazi-cli
+    fi
+    # lazydocker
+    if [ -z "$(which lazydocker)" ]; then
+        curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+    fi
     # xclip
     if [ ${XDG_SESSION_TYPE-} = "wayland" ]; then
         sudo apt install -y wl-clipboard
@@ -128,7 +144,6 @@ __  __          __      _ ____  ____  ____  __ __ _
     # figlet
     sudo apt install -y figlet
     # lolcat
-    # lolcatは動かない環境があるので注意
     sudo apt install -y lolcat
     # lazygit
     if [ -z "$(which lazygit)" ]; then
@@ -140,10 +155,12 @@ __  __          __      _ ____  ____  ____  __ __ _
         rm -rf lazygit lazygit.tar.gz
     fi
     # fzf
-    # 参考:https://github.com/junegunn/fzf/tree/master
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    # allオプションをつけることで対話形式を避ける
-    ~/.fzf/install --all
+    if [ -z "$(which fzf)" ]; then
+        # 参考:https://github.com/junegunn/fzf/tree/master
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        # allオプションをつけることで対話形式を避ける
+        ~/.fzf/install --all
+    fi
 
     # bash
 
