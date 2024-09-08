@@ -28,6 +28,7 @@ __  __          __      _ ____  ____  ____  __ __ _
     cd $HOME/dotfiles/scripts
     # 各種configをdotfileからコピー
     ./link.sh
+    source $HOME/.bashrc
     # とりあえずupdateとupgrade
     sudo apt update
     sudo apt upgrade -y
