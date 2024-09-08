@@ -77,6 +77,8 @@ __  __          __      _ ____  ____  ____  __ __ _
     # rust
     if [ -z "$(which cargo)" ]; then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+        export PATH=$HOME/.cargo/bin:$PATH
+        rustup update
     fi
 
     # octave
@@ -121,9 +123,9 @@ __  __          __      _ ____  ____  ____  __ __ _
         rm -rf $HOME/.config/ranger
     fi
     # yazi
-    # if [ -z "$(which yazi)" ]; then
-    #     cargo install --locked yazi-fm yazi-cli
-    # fi
+    if [ -z "$(which yazi)" ]; then
+        cargo install --locked yazi-fm yazi-cli
+    fi
     # lazydocker
     if [ -z "$(which lazydocker)" ]; then
         curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
