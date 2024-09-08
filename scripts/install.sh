@@ -53,7 +53,7 @@ __  __          __      _ ____  ____  ____  __ __ _
     # GUI用にpython3-tkを入れる
     sudo apt install -y python3-tk
     # pyenv
-    if [ -z "$(pyenv)" ]; then
+    if [ -z "$(which pyenv)" ]; then
         curl https://pyenv.run | bash
     fi
 
