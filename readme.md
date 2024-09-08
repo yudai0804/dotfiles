@@ -16,18 +16,12 @@ __  __          __      _ ____  ____  ____  __ __ _
 
 # 対応環境
 - Debian/Ubuntu
-  - GitHub Actionsで常にCIを走らせてるから、確実に動く。
-  - WSLの場合、vimとWindowsのクリップボードの共有をするためにはひと手間必要。
-  - このdotfilesはクリップボードの共有には非対応。
-  - Windows Terminalを使っている場合、Ctrl+Shift+cやCtrl+Shift+vが使えるので、クリップボードの共有ができなくても問題ないはず。
-- i3wm(Endeavour OS)
-  - install.shは非対応。
-  - dotfiles自体は使える。(一部壊れてるかも)
+  - GitHub Actionsで常にCIを走らせているので、確実に動きます。
 
 dotfilesには
 - zsh+NeoVim(LazyVim)のモダンなもの
 - bash+Vimのシンプルな構成のもの
-の2種類が含まれています。
+の2種類があります。
 最近は後者のシンプルな構成のものをメインで使っています。
 
 # インストール
