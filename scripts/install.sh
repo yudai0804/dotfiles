@@ -123,10 +123,13 @@ __  __          __      _ ____  ____  ____  __ __ _
         mkdir -p $HOME/.local
         mkdir -p $HOME/.local/bin
         sudo apt install -y unzip
-        curl -Lo $HOME/.local/yazi-x86_64-unknown-linux-gnu.zip https://github.com/sxyazi/yazi/releases/latest/download/yazi-x86_64-unknown-linux-gnu.zip
-        unzip $HOME/.local/yazi-x86_64-unknown-linux-gnu.zip
-        cp $HOME/.local/yazi-x86_64-unknown-linux-gnu/yazi $HOME/.local/bin/yazi
-        rm -rf $HOME/.local/yazi-x86_64-unknown-linux-gnu**
+        cd $HOME/.local
+        curl -Lo yazi-x86_64-unknown-linux-gnu.zip https://github.com/sxyazi/yazi/releases/latest/download/yazi-x86_64-unknown-linux-gnu.zip
+        unzip yazi-x86_64-unknown-linux-gnu.zip
+        # copy to $HOME/.local/bin/
+        cp yazi-x86_64-unknown-linux-gnu/yazi bin/yazi
+        rm -rf yazi-x86_64-unknown-linux-gnu**
+        cd -
     fi
     # lazydocker
     if [ -z "$(which lazydocker)" ]; then
