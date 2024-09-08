@@ -120,8 +120,9 @@ __  __          __      _ ____  ____  ____  __ __ _
     # yazi
     if [ -z "$(which yazi)" ]; then
         # cargo install --locked yazi-fm yazi-cli
-        mkdir -p $HOME/.local -p
-        mkdir -p $HOME/.local/bin -p
+        mkdir -p $HOME/.local
+        mkdir -p $HOME/.local/bin
+        sudo apt install -y unzip
         curl -Lo $HOME/.local/yazi-x86_64-unknown-linux-gnu.zip https://github.com/sxyazi/yazi/releases/latest/download/yazi-x86_64-unknown-linux-gnu.zip
         unzip $HOME/.local/yazi-x86_64-unknown-linux-gnu.zip
         cp $HOME/.local/yazi-x86_64-unknown-linux-gnu/yazi $HOME/.local/bin/yazi
