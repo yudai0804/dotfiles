@@ -55,24 +55,19 @@ __  __          __      _ ____  ____  ____  __ __ _
     # pyenv
     if [ -z "$(which pyenv)" ]; then
         curl https://pyenv.run | bash
+        export PYENV_ROOT="$HOME/.pyenv"
+        command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+        eval "$(pyenv init -)"
     fi
 
-    # nodejsとnpm
-    # npmでインストールした最新バージョンのnodejsとnpmが存在していないときにのみ実行する
-    if [ ! -f "/usr/local/bin/node" ] || [ ! -f "/usr/local/bin/npm" ]; then
-        # aptでnodejsとnpmをインストール
-        sudo apt install -y nodejs npm
-
-        # npmでnodeをインストール
-        sudo npm install n -g
-        sudo n stable
+    # voltaを使ってnodeをインストール
+    if [ -z "$(which volta)" ]; then
+        curl https://get.volta.sh | bash
+        export VOLTA_HOME="$HOME/.volta"
+        export PATH="$VOLTA_HOME/bin:$PATH"
+        volta install node@latest
     fi
 
-    if [ -f "/usr/bin/node" ] || [ -f "/usr/bin/npm" ]; then
-        # 古いnodejsを削除
-        sudo apt purge -y nodejs npm
-        sudo apt autoremove -y
-    fi
 
     # rust
     if [ -z "$(which cargo)" ]; then
@@ -139,17 +134,29 @@ __  __          __      _ ____  ____  ____  __ __ _
     fi
 
     # ascii
-    sudo apt install -y ascii
+    if [ -z "$(which ascii)" ]; then
+        sudo apt install -y ascii
+    fi
     # neofetch
-    sudo apt install -y neofetch
+    if [ -z "$(which neofetch)" ]; then
+        sudo apt install -y neofetch
+    fi
     # tree
-    sudo apt install -y tree
+    if [ -z "$(which tree)" ]; then
+        sudo apt install -y tree
+    fi
     # htop
-    sudo apt install -y htop
+    if [ -z "$(which htop)" ]; then
+        sudo apt install -y htop
+    fi
     # figlet
-    sudo apt install -y figlet
+    if [ -z "$(which figlet)" ]; then
+        sudo apt install -y figlet
+    fi
     # lolcat
-    sudo apt install -y lolcat
+    if [ -z "$(which lolcat)" ]; then
+        sudo apt install -y lolcat
+    fi
     # lazygit
     if [ -z "$(which lazygit)" ]; then
         LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
