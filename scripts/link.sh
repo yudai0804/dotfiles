@@ -3,7 +3,6 @@ mkdir -p ~/.config
 
 ln -sfn ~/dotfiles/.config/lazygit ~/.config/lazygit
 ln -sfn ~/dotfiles/.config/nvim ~/.config/nvim
-ln -sfn ~/dotfiles/.config/ranger ~/.config/ranger
 ln -sfn ~/dotfiles/.config/wezterm ~/.config/wezterm
 ln -sfn ~/dotfiles/.config/yazi ~/.config/yazi
 

@@ -93,12 +93,6 @@ __  __          __      _ ____  ____  ____  __ __ _
     if [ ! -f $HOME/.vim/colors/molokai.vim ]; then
         curl -o $HOME/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
     fi
-    # ranger
-    if [ -z "$(which ranger)" ]; then 
-        sudo apt install -y ranger w3m lynx highlight atool mediainfo xpdf caca-utils
-        # デフォルトで作られるrangerのconfigを削除
-        rm -rf $HOME/.config/ranger
-    fi
     # yazi
     if [ -z "$(which yazi)" ]; then
         # cargo install --locked yazi-fm yazi-cli

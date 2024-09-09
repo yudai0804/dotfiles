@@ -212,18 +212,6 @@ function pbpaste {
     fi
 }
 
-# rangerが多重に起動するのを防止する
-# https://qiita.com/ssh0/items/fe85da119c93333ba34e
-
-function ranger() {
-   if [ -z "$RANGER_LEVEL" ]; then
-       /usr/bin/ranger $@
-   else
-       exit
-   fi
-}
-
-alias r='ranger'
 alias copy='pbcopy'
 alias clip='pbcopy'
 alias paste='pbpaste'
