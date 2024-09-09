@@ -83,6 +83,13 @@ __  __          __      _ ____  ____  ____  __ __ _
 
     # tool
 
+    # fzf
+    if [ -z "$(which fzf)" ]; then
+        # 参考:https://github.com/junegunn/fzf/tree/master
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        # allオプションをつけることで対話形式を避ける
+        ~/.fzf/install --all
+    fi
     # vim関連
     # もともと入っているvimを消してvim-gtkを入れる
     # 入れなおす理由はvim-gtkはclipboardに対応しているから
@@ -96,6 +103,8 @@ __  __          __      _ ____  ____  ____  __ __ _
     # yazi
     if [ -z "$(which yazi)" ]; then
         # cargo install --locked yazi-fm yazi-cli
+        # yaziに使うものをインストール
+        sudo apt install -y file jq
         mkdir -p $HOME/.local
         mkdir -p $HOME/.local/bin
         sudo apt install -y unzip
@@ -151,13 +160,6 @@ __  __          __      _ ____  ____  ____  __ __ _
         sudo install lazygit /usr/local/bin
 
         rm -rf lazygit lazygit.tar.gz
-    fi
-    # fzf
-    if [ -z "$(which fzf)" ]; then
-        # 参考:https://github.com/junegunn/fzf/tree/master
-        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-        # allオプションをつけることで対話形式を避ける
-        ~/.fzf/install --all
     fi
 
     # bash
