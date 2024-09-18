@@ -75,6 +75,17 @@ if [ -n "$(which dolphin)" ]; then
     alias explorer='dolphin'
 fi
 
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+alias yazi='y'
+
 # ===== PROMPT =====
 
 if [ -f ~/.git-prompt.sh ]; then
@@ -151,3 +162,4 @@ print_aa() {
 }
 
 print_aa
+

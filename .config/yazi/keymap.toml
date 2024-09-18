@@ -1,0 +1,7 @@
+# keymap.toml
+[manager]
+# qの場合元いたディレクトリに、Qの場合はyaziで開いているディレクトリに移動するようにする。
+prepend_keymap = [
+	{ on = "Q",     run = "quit",               desc = "Exit the process" },
+	{ on = "q",     run = "quit --no-cwd-file", desc = "Exit the process without writing cwd-file" }
+]
