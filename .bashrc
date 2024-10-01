@@ -6,7 +6,7 @@ esac
 
 # ===== ALIAS =====
 
-alias ls='ls --color=auto' 
+alias ls='ls --color=auto'
 alias ll='ls -alF --color=auto'
 
 alias ga='git add'
@@ -83,7 +83,16 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+function ya_zed() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --chooser-file="$tmp"
 
+	local opened_file=$(cat -- "$tmp" | head -n 1)
+	zed -- "$opened_file"
+
+	rm -f -- "$tmp"
+	exit
+}
 alias yazi='y'
 
 # ===== PROMPT =====
@@ -161,5 +170,4 @@ print_aa() {
     fi
 }
 
-print_aa
-
+# print_aa

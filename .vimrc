@@ -3,7 +3,6 @@ scriptencoding utf-8
 syntax enable
 colorscheme molokai
 set t_Co=256
-set number
 set autoindent
 set smartindent
 set smarttab
