@@ -37,5 +37,12 @@
         ": new center terminal enter ya_zed space cmd-v enter"
       ]
     }
+  },
+  {
+    "context": "Editor && !menu",
+    "bindings": {
+      "ctrl-shift-c": "editor::Copy",
+      "ctrl-shift-v": "editor::Paste"
+    }
   }
 ]
