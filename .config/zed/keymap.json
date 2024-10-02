@@ -3,11 +3,7 @@
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
       "space e": "workspace::ToggleLeftDock",
-      "space c": "pane::CloseActiveItem",
-      "space gg": [
-        "workspace::SendKeystrokes",
-        ": new center terminal enter lazygit space enter"
-      ]
+      "space c": "pane::CloseActiveItem"
     }
   },
   {
