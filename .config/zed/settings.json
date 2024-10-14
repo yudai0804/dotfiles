@@ -7,9 +7,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "ui_font_size": 16,
+  "ui_font_size": 14,
   "ui_font_family": "Noto Sans Mono CJK JP",
-  "buffer_font_size": 16,
+  "buffer_font_size": 14,
   "buffer_font_family": "Noto Sans Mono CJK JP",
   "theme": "Monokai Charcoal (gray)",
   "vim_mode": true,
@@ -21,6 +21,15 @@
     "env": {
       "LANG": "ja_JP.UTF-8",
       "LC_ALL": "ja_JP.UTF-8"
+    }
+  },
+  "lsp": {
+    "pyright": {
+      "settings": {
+        "python": {
+          // "pythonPath": ".venv/bin/python"
+        }
+      }
     }
   }
 }
