@@ -11,3 +11,9 @@ code --install-extension ms-python.black-formatter
 code --install-extension rust-lang.rust-analyzer
 # Git/GitHub
 code --install-extension mhutchie.git-graph
+# Marp
+code --install-extension marp-team.marp-vscode
+# Drawio
+code --install-extension hediet.vscode-drawio
+# Todo tree
+code --install-extension gruntfuggly.todo-tree
