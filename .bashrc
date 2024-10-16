@@ -117,8 +117,8 @@ fi
 
 # ===== HISTORY =====
 
-HISTSIZE=10000
-HISTFILESIZE=10000
+HISTSIZE=100000
+HISTFILESIZE=100000
 # Avoid duplicates
 HISTCONTROL=ignoredups:erasedups
 # When the shell exits, append to the history file instead of overwriting it
