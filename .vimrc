@@ -2,6 +2,7 @@ set encoding=utf-8
 scriptencoding utf-8
 syntax enable
 colorscheme molokai
+set number
 set t_Co=256
 set autoindent
 set smartindent
