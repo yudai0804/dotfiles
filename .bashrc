@@ -7,7 +7,7 @@ esac
 # ===== ALIAS =====
 
 alias ls='ls --color=auto'
-alias ll='ls -alF --color=auto'
+alias ll='ls -alhF --color=auto'
 
 alias ga='git add'
 alias gaa='git add -A'
