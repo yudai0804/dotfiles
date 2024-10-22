@@ -116,6 +116,8 @@ __  __          __      _ ____  ____  ____  __ __ _
         rm -rf yazi-x86_64-unknown-linux-gnu**
         cd -
     fi
+    # delta
+    cargo install -y git-delta
     # lazydocker
     if [ -z "$(which lazydocker)" ]; then
         curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
