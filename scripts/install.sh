@@ -117,7 +117,7 @@ __  __          __      _ ____  ____  ____  __ __ _
         cd -
     fi
     # delta
-    cargo install -y git-delta
+    cargo install git-delta
     # lazydocker
     if [ -z "$(which lazydocker)" ]; then
         curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
