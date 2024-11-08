@@ -1,0 +1,7 @@
+[plugin]
+# deps = [{ use = "GrzegorzKozub/mdcat", rev = "1706af4" }
+deps = [
+]
+
+[flavor]
+deps = [{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "d504f70" }]

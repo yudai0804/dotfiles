@@ -3,5 +3,10 @@
 # qの場合元いたディレクトリに、Qの場合はyaziで開いているディレクトリに移動するようにする。
 prepend_keymap = [
 	{ on = "Q",     run = "quit",               desc = "Exit the process" },
-	{ on = "q",     run = "quit --no-cwd-file", desc = "Exit the process without writing cwd-file" }
+	{ on = "q",     run = "quit --no-cwd-file", desc = "Exit the process without writing cwd-file" },
+    { on = ["f", "g"], run = "plugin fg --args='rg'", desc = "find file by content (fuzzy match)"},
+    { on = ["f", "f"], run = "plugin fg --args='fzf'", desc = "find file by filename"},
+    { on = "i", run = "plugin searchjump", desc = "searchjump mode"},
+    { on = "i", run = "plugin searchjump --args='autocd'", desc = "searchjump mode(auto cd select folder)"}
 ]
+
