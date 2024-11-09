@@ -59,6 +59,10 @@ __  __          __      _ ____  ____  ____  __ __ _
         command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
         eval "$(pyenv init -)"
     fi
+    # poetry
+    if [ -z "$(which poetry)" ]; then
+        curl -sSL https://install.python-poetry.org | python3 -
+    fi
 
     # voltaを使ってnodeをインストール
     if [ -z "$(which volta)" ]; then
@@ -74,6 +78,8 @@ __  __          __      _ ____  ____  ____  __ __ _
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
         export PATH=$HOME/.cargo/bin:$PATH
         rustup update
+        # cargo binstall
+        cargo install cargo-binstall
     fi
 
     # octave
@@ -105,19 +111,12 @@ __  __          __      _ ____  ____  ____  __ __ _
         # cargo install --locked yazi-fm yazi-cli
         # yaziに使うものをインストール
         sudo apt install -y file jq
-        mkdir -p $HOME/.local
-        mkdir -p $HOME/.local/bin
-        sudo apt install -y unzip
-        cd $HOME/.local
-        curl -Lo yazi-x86_64-unknown-linux-gnu.zip https://github.com/sxyazi/yazi/releases/latest/download/yazi-x86_64-unknown-linux-gnu.zip
-        unzip yazi-x86_64-unknown-linux-gnu.zip
-        # copy to $HOME/.local/bin/
-        cp yazi-x86_64-unknown-linux-gnu/yazi bin/yazi
-        rm -rf yazi-x86_64-unknown-linux-gnu**
-        cd -
+        cargo binstall yazi-fm yazi-cli -y
     fi
     # delta
-    cargo install git-delta
+    if [ -z "$(which delta)" ]; then
+        cargo binstall git-delta -y
+    fi
     # lazydocker
     if [ -z "$(which lazydocker)" ]; then
         curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
@@ -145,6 +144,10 @@ __  __          __      _ ____  ____  ____  __ __ _
     # htop
     if [ -z "$(which htop)" ]; then
         sudo apt install -y htop
+    fi
+    # bottom
+    if [ -z "$(which btm)" ]; then
+        cargo binstall -y btm
     fi
     # figlet
     if [ -z "$(which figlet)" ]; then

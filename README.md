@@ -74,3 +74,41 @@ ssh-keygen -t rsa
 そしたらid_rsa.pubをGitHubに追加する。
 GitHubで追加するときはauthenitiaciton Keyを選ぶ
 
+## Install WezTerm
+```
+curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
+echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+sudo apt update && sudo apt install -y wezterm
+```
+
+## Install OBS
+```
+sudo add-apt-repository ppa:obsproject/obs-studio
+
+sudo apt install obs-studio
+```
+
+## Install VLC media player
+```
+sudo apt install -u vlc
+```
+
+## Install GIMP
+```
+sudo apt install -y gimp
+```
+
+## Install Zed
+```
+curl -f https://zed.dev/install.sh | sh
+```
+
+## Install VSCode
+```
+./scripts/install-vscode.sh
+```
+
+## Install Docker
+```
+./scripts/install-docker-debian.sh
+```
