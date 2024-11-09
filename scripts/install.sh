@@ -79,7 +79,7 @@ __  __          __      _ ____  ____  ____  __ __ _
         export PATH=$HOME/.cargo/bin:$PATH
         rustup update
         # cargo binstall
-        cargo install cargo-binstall
+        curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
     fi
 
     # octave
