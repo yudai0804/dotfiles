@@ -160,20 +160,3 @@ shopt -s checkwinsize
 if [ -f ~/.bashrc_local ]; then
     source ~/.bashrc_local
 fi
-
-# アスキーアートを表示する
-# lolcatが入っていればレインボーで表示する(lolcatは動かない環境があるので注意)
-print_aa() {
-    if [ -n "$(which figlet)" ]; then
-        if [ -n "$(which lolcat)" ]; then
-            figlet -f slant "Welcome" | lolcat
-        else
-            figlet -f slant "Welcome"
-        fi
-    fi
-}
-
-# print_aa
-
-
-eval "$(zoxide init bash)"
