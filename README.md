@@ -90,7 +90,7 @@ sudo apt install obs-studio
 
 ## Install VLC media player
 ```
-sudo apt install -u vlc
+sudo apt install -y vlc
 ```
 
 ## Install GIMP
