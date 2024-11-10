@@ -17,6 +17,7 @@ __  __          __      _ ____  ____  ____  __ __ _
 
 # Environment
 - OS: Debian
+- Shell: Bash
 - Desktop environment: KDE Plasma(Linux)
 - Terminal emulator: WezTerm
 ## My favorite tools
