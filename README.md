@@ -16,7 +16,7 @@ __  __          __      _ ____  ____  ____  __ __ _
 ![neofetch](images/neofetch.png)
 
 # Environment
-- OS: Debian
+- OS: Debian GNU/Linux 12
 - Shell: Bash
 - Desktop environment: KDE Plasma(Linux)
 - Terminal emulator: WezTerm
