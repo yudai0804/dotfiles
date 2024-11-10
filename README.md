@@ -18,7 +18,7 @@ __  __          __      _ ____  ____  ____  __ __ _
 # Environment
 - OS: Debian GNU/Linux 12
 - Shell: Bash
-- Desktop environment: KDE Plasma(Linux)
+- Desktop environment: KDE Plasma 5
 - Terminal emulator: WezTerm
 ## My favorite tools
 ### Editor
