@@ -4,9 +4,11 @@
 code --install-extension ms-vscode.cpptools
 code --install-extension cschlosser.doxdocgen
 # Python
+# Pylance等はms-python.pythonをインストールすると一緒にインストールされる
 code --install-extension ms-python.python
 code --install-extension ms-toolsai.jupyter
 code --install-extension ms-python.black-formatter
+code --install-extension ms-python.isort
 # Rust
 code --install-extension rust-lang.rust-analyzer
 # Git/GitHub
