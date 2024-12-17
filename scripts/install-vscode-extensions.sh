@@ -11,6 +11,8 @@ code --install-extension ms-python.black-formatter
 code --install-extension ms-python.isort
 # Rust
 code --install-extension rust-lang.rust-analyzer
+# Verilog HDL
+code --install-extension mshr-h.veriloghdl
 # Git/GitHub
 code --install-extension mhutchie.git-graph
 # Marp
