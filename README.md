@@ -19,7 +19,7 @@ __  __          __      _ ____  ____  ____  __ __ _
 - OS: Debian GNU/Linux 12
 - Shell: Bash
 - Desktop environment: KDE Plasma 5
-- Terminal emulator: WezTerm
+- Terminal emulator: Ghostty
 ## My favorite tools
 ### Editor
 I mainly use VSCode for development, but I switch editors depending on my mood.  
