@@ -113,6 +113,11 @@ Debianの場合
 
 https://github.com/clayrisser/debian-ghostty/
 
+## Install Google Chrome
+```
+./scripts/install-google-chrome.sh
+```
+
 ## Install WezTerm
 ```
 curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
