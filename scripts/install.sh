@@ -3,11 +3,6 @@ function main {
 
     set -euo pipefail
 
-    # check dotfiles path
-    if [ ! -d $HOME/dotfiles/ ]; then
-        git clone https://github.com/yudai0804/dotfiles.git $HOME/dotfiles
-    fi
-
     # figlet -f slant "Yudai0804's dotfiles"
     
     echo -e '\e[35;1m
@@ -25,13 +20,24 @@ __  __          __      _ ____  ____  ____  __ __ _
                                     
 \e[m'
     echo "start install scripts."
+
+    # とりあえずupdateとupgrade
+    sudo apt update
+    sudo apt upgrade -y
+
+    if [ -Z "$(which git)" ]; then
+        sudo apt install -y git
+    fi
+
+    # check dotfiles path
+    if [ ! -d $HOME/dotfiles/ ]; then
+        git clone https://github.com/yudai0804/dotfiles.git $HOME/dotfiles
+    fi
+
     cd $HOME/dotfiles/scripts
     # 各種configをdotfileからコピー
     ./link.sh
     source $HOME/.bashrc
-    # とりあえずupdateとupgrade
-    sudo apt update
-    sudo apt upgrade -y
 
     if [ -z "$(which curl)" ]; then
         sudo apt install -y curl

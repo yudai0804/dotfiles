@@ -160,3 +160,4 @@ shopt -s checkwinsize
 if [ -f ~/.bashrc_local ]; then
     source ~/.bashrc_local
 fi
+. "$HOME/.cargo/env"

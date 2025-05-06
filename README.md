@@ -64,7 +64,7 @@ docker compose
 docker run -it dotfiles-yudai0804-debian bash
 ```
 
-# Memo
+# Note
 
 ## Generate SSH key
 ```
@@ -74,6 +74,44 @@ ssh-keygen -t rsa
 ```
 そしたらid_rsa.pubをGitHubに追加する。
 GitHubで追加するときはauthenitiaciton Keyを選ぶ
+
+## Install VSCode
+```
+./scripts/install-vscode.sh
+```
+
+## Install Docker
+Debianの場合
+```
+./scripts/install-docker-debian.sh
+```
+Ubuntuの場合
+```
+./scripts/install-docker-ubuntu.sh
+```
+
+## Install Yazi
+Yaziの公式バイナリはビルドに最新のUbuntuを使っている都合ため、Ubuntu22.04などを使おうとするとglibcのバージョンが異なって、使えない。その場合は自分でYaziをソースからビルドする必要がある。  
+
+glibcのバージョンに関するissue: https://github.com/sxyazi/yazi/issues/2346
+
+yaziのビルド方法: https://yazi-rs.github.io/docs/installation
+
+## Install Nerd font
+```
+./scripts/install-nerd-font.sh
+```
+
+## Install Ghostty
+Ubuntuの場合
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
+```
+参考: https://github.com/mkasberg/ghostty-ubuntu
+
+Debianの場合
+
+https://github.com/clayrisser/debian-ghostty/
 
 ## Install WezTerm
 ```
@@ -104,12 +142,3 @@ sudo apt install -y gimp
 curl -f https://zed.dev/install.sh | sh
 ```
 
-## Install VSCode
-```
-./scripts/install-vscode.sh
-```
-
-## Install Docker
-```
-./scripts/install-docker-debian.sh
-```

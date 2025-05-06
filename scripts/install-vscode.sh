@@ -14,5 +14,5 @@ sudo apt install -y code # or code-insiders
 # extensionsをインストール
 # ただし、ディレクトリの関係上ユーザーアカウントのときのみスクリプトが走るようにする
 if [ $(whoami) != root ]; then
-    ./install-vscode-extensions.sh
+    ./scripts/install-vscode-extensions.sh
 fi
